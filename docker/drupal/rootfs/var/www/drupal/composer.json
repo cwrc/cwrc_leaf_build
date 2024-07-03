@@ -32,6 +32,11 @@
       "no-api": true
     },
     {
+      "type": "git",
+      "url": "https://github.com/cwrc/islandora_bagger_integration.git",
+      "no-api": true
+    },
+    {
       "type": "package",
       "package": {
         "name": "library/openseadragon",
@@ -168,6 +173,7 @@
     "drupal/fixed_block_content": "^1.1",
     "drupal/fontawesome": "^2.17",
     "drupal/geolocation": "^3.12",
+    "drupal/getjwtonlogin": "^2.0",
     "drupal/group": "^1.6",
     "drupal/group_content_menu": "1.x-dev@dev",
     "drupal/groupmedia": "2.x-dev",
@@ -226,6 +232,7 @@
     "islandora/openseadragon": "2.x-dev",
     "j7mbo/twitter-api-php": "^1.0",
     "library/pdf.js": "2.4.456",
+    "mjordan/islandora_bagger_integration": "dev-jefferya/v0.0.3",
     "mjordan/islandora_workbench_integration": "dev-main",
     "oomphinc/composer-installers-extender": "^2",
     "vlucas/phpdotenv": "4.2.0",

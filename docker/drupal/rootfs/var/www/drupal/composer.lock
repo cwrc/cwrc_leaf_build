@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dc3c76f99883b7ce040be1eb28937cb",
+    "content-hash": "38847c9ecdf9d5e1caa08c4e64603bf0",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -5086,6 +5086,51 @@
             "support": {
                 "source": "https://git.drupal.org/project/geolocation.git",
                 "issues": "https://www.drupal.org/project/issues/geolocation"
+            }
+        },
+        {
+            "name": "drupal/getjwtonlogin",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/getjwtonlogin.git",
+                "reference": "2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/getjwtonlogin-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "463b7770d18067467c26d112e7e2d2c8c766a85f"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10",
+                "drupal/jwt": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.3",
+                    "datestamp": "1676524093",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "salihcenap",
+                    "homepage": "https://www.drupal.org/user/141541"
+                }
+            ],
+            "description": "A module to get JWT on login",
+            "homepage": "https://www.drupal.org/project/getjwtonlogin",
+            "support": {
+                "source": "https://git.drupalcode.org/project/getjwtonlogin"
             }
         },
         {
@@ -11575,6 +11620,31 @@
                 "source": "https://github.com/mck89/peast/tree/v1.15.4"
             },
             "time": "2023-08-12T08:29:29+00:00"
+        },
+        {
+            "name": "mjordan/islandora_bagger_integration",
+            "version": "dev-jefferya/v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cwrc/islandora_bagger_integration.git",
+                "reference": "c45218c0b695ffa7087bb3de076622d5e5667154"
+            },
+            "require": {
+                "drupal/getjwtonlogin": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Jordan",
+                    "email": "mjordan@sfu.ca"
+                }
+            ],
+            "description": "Drupal Module that allows user to create Bags with islandora_bagger.",
+            "time": "2024-06-03T20:54:25+00:00"
         },
         {
             "name": "mjordan/islandora_workbench_integration",
@@ -24629,6 +24699,7 @@
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
         "islandora/openseadragon": 20,
+        "mjordan/islandora_bagger_integration": 20,
         "mjordan/islandora_workbench_integration": 20,
         "drupal/context": 5
     },

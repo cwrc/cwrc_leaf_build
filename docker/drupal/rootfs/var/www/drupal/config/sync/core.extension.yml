@@ -76,6 +76,7 @@ module:
   fontawesome: 0
   form_options_attributes: 0
   geolocation: 0
+  getjwtonlogin: 0
   gnode: 0
   group: 0
   group_content_menu: 0
@@ -87,6 +88,7 @@ module:
   inline_entity_form: 0
   islandora: 0
   islandora_audio: 0
+  islandora_bagger_integration: 0
   islandora_breadcrumbs: 0
   islandora_core_feature: 0
   islandora_fits: 0

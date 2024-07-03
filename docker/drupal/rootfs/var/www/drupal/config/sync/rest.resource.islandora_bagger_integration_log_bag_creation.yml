@@ -1,0 +1,20 @@
+uuid: 5c2dd198-f2e5-4bc3-87a0-f4de47eb217c
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - islandora_bagger_integration
+    - jwt
+    - serialization
+id: islandora_bagger_integration_log_bag_creation
+plugin_id: islandora_bagger_integration_log_bag_creation
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+  authentication:
+    - jwt_auth
+    - basic_auth
