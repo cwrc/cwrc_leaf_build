@@ -67,7 +67,7 @@ jobs:
         push: false
         load: true
         build-context: leaf_base_drupal=docker-image://${LEAF_REPOSITORY}/drupal:${LEAF_TAG}
-        context: .
+        context: docker/drupal/Dockerfile
 
     - name: Scan image
       uses: anchore/scan-action@v3
