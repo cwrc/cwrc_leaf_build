@@ -66,7 +66,7 @@ jobs:
         tags: localbuild/testimage:latest
         push: false
         load: true
-        build-context: leaf_base_drupal=docker-image://${LEAF_REPOSITORY}/drupal:${LEAF_TAG}
+        build-contexts: leaf_base_drupal=docker-image://${LEAF_REPOSITORY}/drupal:${LEAF_TAG}
         context: docker/drupal
 
     - name: Scan image
