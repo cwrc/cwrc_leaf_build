@@ -20,3 +20,22 @@ The CWRC Repository customizations include Drupal modules and configurations tha
   * REST endpoint to allow registering archival information package (AIP) creation events with Drupal
   * Adds a Drupal view of the resulting information (views.view.preservation_show_registered_events.yml):
     * <https://${SITE_URL}/views/preservation/show_registered_events?page=${page}&_format=json>
+
+* To enable, the following is added to the CWRC `.env` file along with the `docker-compose.bagger.yml` from `https://github.com/cwrc/leaf-isle-bagger/`
+
+``` env
+# ------------
+# Preservation
+# ------------
+
+# For details: see https://github.com/cwrc/leaf-isle-bagger/
+
+# Chain docker-compose.yml files
+#COMPOSE_PATH_SEPARATOR=:
+#COMPOSE_FILE=docker-compose.yml:docker-compose.bagger.yml
+
+# Environment for the Islandora Bagger container
+#BAGGER_REPOSITORY=ghcr.io/cwrc
+#BAGGER_TAG=v0.0.3
+#BAGGER_DEFAULT_PER_BAG_REGISTER_BAGS_WITH_ISLANDORA=false
+```

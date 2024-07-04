@@ -6,8 +6,8 @@ ARG TARGETARCH
 # Copy local customizations
 COPY --link rootfs /
 
-# Not sure if needed
-#RUN --mount=type=cache,id=custom-drupal-composer-${TARGETARCH},sharing=locked,target=/root/.composer/cache \
-#    composer install -d /var/www/drupal && \
-#    chown -R nginx:nginx /var/www/drupal && \
-#    cleanup.sh
+# install custom modules; custom Drupal Config needs to be synchronized outside the build process
+RUN --mount=type=cache,id=custom-drupal-composer-${TARGETARCH},sharing=locked,target=/root/.composer/cache \
+    composer install -d /var/www/drupal && \
+    chown -R nginx:nginx /var/www/drupal && \
+    cleanup.sh
