@@ -74,9 +74,9 @@ jobs:
         severity-cutoff: critical
         targets: |
           - default
-        set:
-          - tags: ${{ steps.meta.outputs.tags }}
-          - labels: ${{ steps.meta.outputs.labels }}
+        set: |
+          - drupal.tags=${{ steps.meta.outputs.tags }}
+          - drupal.labels=${{ steps.meta.outputs.labels }}
 
     - name: Upload vulnerability report
       uses: github/codeql-action/upload-sarif@v3
