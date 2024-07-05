@@ -12,8 +12,8 @@
 name: Anchore Grype vulnerability scan
 
 on:
-  push:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
@@ -72,6 +72,11 @@ jobs:
         image: "ghcr.io/cwrc/drupal:local"
         fail-build: false
         severity-cutoff: critical
+        targets: |
+            - default
+          set:
+            - tags: ${{ steps.meta.outputs.tags }}
+            - labels: ${{ steps.meta.outputs.labels }}
 
     - name: Upload vulnerability report
       uses: github/codeql-action/upload-sarif@v3
