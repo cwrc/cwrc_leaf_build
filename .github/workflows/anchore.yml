@@ -75,8 +75,8 @@ jobs:
         targets: |
           - default
         set: |
-          - drupal.tags=${{ steps.meta.outputs.tags }}
-          - drupal.labels=${{ steps.meta.outputs.labels }}
+          - drupal.args.tags=${{ steps.meta.outputs.tags }}
+          - drupal.args.labels=${{ steps.meta.outputs.labels }}
 
     - name: Upload vulnerability report
       uses: github/codeql-action/upload-sarif@v3
