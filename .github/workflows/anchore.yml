@@ -63,14 +63,13 @@ jobs:
     - name: build local container
       uses: docker/bake-action@v5
       with:
-        tags: localbuild/testimage:latest
         push: false
         load: true
 
     - name: Scan image
       uses: anchore/scan-action@v3
       with:
-        image: "localbuild/testimage:latest"
+        image: "ghcr.io/cwrc/drupal:local"
         fail-build: false
         severity-cutoff: critical
 
