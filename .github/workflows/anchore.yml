@@ -72,11 +72,10 @@ jobs:
         image: "ghcr.io/cwrc/drupal:local"
         fail-build: false
         severity-cutoff: critical
-        targets: |
-          - default
+        targets: default
         set: |
           drupal.tags="test"
-          drupal.labels=$"test"
+          drupal.labels="test"
 
     - name: Upload vulnerability report
       uses: github/codeql-action/upload-sarif@v3
