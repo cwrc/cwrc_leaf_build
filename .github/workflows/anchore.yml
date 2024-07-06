@@ -66,8 +66,6 @@ jobs:
         push: false
         load: true
         targets: default
-        set: |
-          drupal.tags=${{ github.ref_name }}
 
     - name: Scan image
       uses: anchore/scan-action@v3
