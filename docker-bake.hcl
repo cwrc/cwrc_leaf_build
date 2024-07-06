@@ -5,7 +5,7 @@ variable "REPOSITORY" {
     default = "ghcr.io/cwrc"
     }
 variable "LEAF_TAG" {
-    default = "local"
+    default = "3.0.7"
     }
 variable "LEAF_REPOSITORY" {
     default = "registry.gitlab.com/calincs/cwrc/leaf/leaf-base-i8"
