@@ -65,6 +65,10 @@ jobs:
       with:
         push: false
         load: true
+        targets: default
+        set: |
+          drupal.tags="test"
+          drupal.labels="test"
 
     - name: Scan image
       uses: anchore/scan-action@v3
@@ -72,10 +76,6 @@ jobs:
         image: "ghcr.io/cwrc/drupal:local"
         fail-build: false
         severity-cutoff: critical
-        targets: default
-        set: |
-          drupal.tags="test"
-          drupal.labels="test"
 
     - name: Upload vulnerability report
       uses: github/codeql-action/upload-sarif@v3
