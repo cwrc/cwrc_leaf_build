@@ -78,8 +78,8 @@ jobs:
           targets: |
             default
           set: |
-            tags=${{ steps.meta.outputs.tags }}
-            labels=${{ steps.meta.outputs.labels }}
+            *.tags=${{ steps.meta.outputs.tags }}
+            *.labels=${{ steps.meta.outputs.labels }}
           #cache-from: type=gha
           #cache-to: type=gha,mode=max
 
