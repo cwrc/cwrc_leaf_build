@@ -1,6 +1,8 @@
 # CWRC LEAF Build
 
-The next generation of the CWRC (Canadian Writing Research Collaboratory) extends the LEAF base. The CI/CD builds a container image based on LEAF. The customizations included within this repository extend the LEAF base.
+The next generation of the CWRC (Canadian Writing Research Collaboratory) building upon and extending [LEAF](https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8).
+
+The OCI image built by the workflow includes the CWRC customizations in this repository layered on top of LEAF via CI/CD build workflow.
 
 ## CWRC customizations of LEAF
 
