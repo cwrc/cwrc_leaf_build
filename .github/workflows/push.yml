@@ -79,9 +79,9 @@ jobs:
           #sbom: true
           targets: |
             default
-          set: |
-            *.tags=${{ steps.meta.outputs.tags }}
-          # *.labels="${{ steps.meta.outputs.labels }}"
+          files: |
+            ./docker-bake.hcl
+            ${{ steps.meta.outputs.bake-file-tags }}
           #cache-from: type=gha
           #cache-to: type=gha,mode=max
 
