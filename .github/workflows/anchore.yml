@@ -60,7 +60,9 @@ jobs:
       with:
         push: false
         load: true
-        targets: default
+        targets: drupal
+        set: |
+          *.tags="ghcr.io/cwrc/drupal:local"
 
     - name: Scan image
       uses: anchore/scan-action@v3
