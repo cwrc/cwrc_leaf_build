@@ -190,10 +190,12 @@
     "drupal/media_library_theme_reset": "^1.5",
     "drupal/metatag": "^1.16",
     "drupal/mimemail": "^1.0@alpha",
+    "drupal/page_manager": "^4.0@RC",
     "drupal/paragraphs": "^1.10",
     "drupal/paragraphs_jquery_ui_accordion": "^1.5",
     "drupal/pathauto": "^1.8",
     "drupal/pdf": "^1.1",
+    "drupal/private_message": "^3.0",
     "drupal/profile_switcher": "^1.0@alpha",
     "drupal/quickedit": "^1.0",
     "drupal/quicktabs": "^3.0@alpha",
@@ -216,6 +218,7 @@
     "drupal/twig_tweak": "^3.1",
     "drupal/twitter_block": "^3.0@alpha",
     "drupal/ultimate_cron": "^2.0@alpha",
+    "drupal/user_csv_import": "^2.0",
     "drupal/view_custom_table": "^2.0",
     "drupal/views_block_area": "^1.0@beta",
     "drupal/views_bulk_edit": "^2.6",
@@ -387,13 +390,27 @@
         "Array check issue fix": "patches/array_check_rest_oai_pmh.patch"
       },
       "drupal/core": {
-        "Parent menu exist check D10.2": "patches/core/parent_menu_exist.patch"
+        "Parent menu exist check D10.2": "patches/core/parent_menu_exist.patch",
+        "PO file import error": "https://www.drupal.org/files/issues/2021-12-19/2449895_92.patch"
       },
       "drupal/quickedit": {
         "Uncaught TypeError: _.where & _.pluck is not a function": "https://www.drupal.org/files/issues/2023-12-27/type-error-where-pluck-not-a-function-3410956-3.patch"
       },
+      "drupal/social_link_field": {
+        "Can't create new Social Link field in Drupal 10": "https://www.drupal.org/files/issues/2024-02-15/social_link_field-3410562-6.patch"
+      },
       "drupal/require_revision_log_message": {
         "can this be made to work with media as well": "https://www.drupal.org/files/issues/2023-04-24/3293857-worksformedia-10.patch"
+      },
+      "drupal/block_class": {
+        "TypeError: array_keys(): Argument #1 ($array) must be of type array, null given in array_keys()": "https://www.drupal.org/files/issues/2024-02-20/third_party_settings_3343165.patch"
+      },
+      "drupal/page_manager": {
+        "Some mandatory parameters are missing ('machine_name', 'step')": "https://www.drupal.org/files/issues/2024-04-12/3438993-5.patch",
+        "menu_item_support": "https://www.drupal.org/files/issues/2023-02-02/page_manager-2620036-27.patch"
+      },
+      "drupal/filefield_paths": {
+        "return value fix": "patches/getFromSupportedWidget.patch"
       }
     },
     "drupal-core-project-message": {
