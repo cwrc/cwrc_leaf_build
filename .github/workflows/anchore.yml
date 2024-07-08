@@ -62,7 +62,7 @@ jobs:
         load: true
         targets: drupal
         set: |
-          *.tags="ghcr.io/cwrc/drupal:local"
+          *.tags=ghcr.io/cwrc/drupal:local
 
     # https://github.com/anchore/scan-action
     - name: Scan image
@@ -70,7 +70,7 @@ jobs:
       with:
         image: "ghcr.io/cwrc/drupal:local"
         fail-build: false
-        severity-cutoff: critical
+        # severity-cutoff: critical
 
     # https://github.com/github/codeql-action
     - name: Upload vulnerability report
