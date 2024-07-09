@@ -1,8 +1,11 @@
 name: Build and publish
 
 on:
+  # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
   push:
-    # branches: [ "main" ]
+    branches:
+      - '**' # all branches; with or without '/'
+      - '!main' # exclude main
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
