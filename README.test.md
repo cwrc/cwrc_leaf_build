@@ -7,7 +7,7 @@ https://nektosact.com/usage/index.html
 ### To simulate a git tag
 
 * Create a file with the following:
-*
+
 ```json
 {
   "ref": "refs/tags/v1.99.91"
@@ -22,7 +22,7 @@ https://nektosact.com/usage/index.html
 
 ``` json
 {
-  "ref": "refs/heads/leaf-3.0.8"
+  "ref": "refs/heads/act-test-leaf"
 }
 ```
 
