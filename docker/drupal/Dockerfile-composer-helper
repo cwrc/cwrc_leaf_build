@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:1.5.1
+FROM leaf_base_drupal
+
+ARG TARGETARCH
+
+# Copy local customizations
+COPY --link rootfs /
+
+# Add CWRC customizations to
+# * composer.json
+# * composer.lock
+RUN --mount=type=cache,id=custom-drupal-composer-${TARGETARCH},sharing=locked,target=/root/.composer/cache \
+    composer require -d /var/www/drupal 'drupal/getjwtonlogin:^2.0' 'mjordan/islandora_bagger_integration' && \
+    #composer update -d /var/www/drupal 'drupal/getjwtonlogin:^2.0' 'mjordan/islandora_bagger_integration' && \
+    composer install -d /var/www/drupal && \
+    cleanup.sh
+
+#RUN \
+#    cd /var/www/drupal && \
+#    grep getjwt * && \
+#    grep bag * \
+#    grep a

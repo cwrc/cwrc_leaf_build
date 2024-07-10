@@ -29,6 +29,7 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  config_translation: 0
   config_update: 0
   contact: 0
   content_lock: 0
@@ -127,6 +128,7 @@ module:
   leaf_writer: 0
   libraries: 0
   link: 0
+  locale: 0
   mailsystem: 0
   manage_display: 0
   matomo: 0
@@ -135,6 +137,8 @@ module:
   media_library_form_element: 0
   menu_link_content: 0
   menu_ui: 0
+  message: 0
+  message_notify: 0
   metatag: 0
   migrate: 0
   migrate_plus: 0
@@ -146,12 +150,16 @@ module:
   openseadragon: 0
   options: 0
   page_cache: 0
+  page_manager: 0
+  page_manager_ui: 0
   paragraphs_jquery_ui_accordion: 0
   path: 0
   path_alias: 0
   pdf: 0
   phpass: 0
   prepopulate: 0
+  private_message: 0
+  private_message_notify: 0
   quickedit: 0
   quicktabs: 0
   quicktabs_jqueryui: 0
@@ -192,6 +200,7 @@ module:
   ultimate_cron: 0
   update: 0
   user: 0
+  user_csv_import: 0
   variationcache: 0
   view_custom_table: 0
   views_block_area: 0
