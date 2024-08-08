@@ -5,18 +5,13 @@ ARG TARGETARCH
 
 # Copy local customizations
 COPY --link rootfs /
+COPY --link scripts /scripts/
 
 # Add CWRC customizations to
 # * composer.json
 # * composer.lock
 RUN --mount=type=cache,id=custom-drupal-composer-${TARGETARCH},sharing=locked,target=/root/.composer/cache \
+    bash /scripts/merge_cwrc_customizations.sh && \
     composer require -d /var/www/drupal 'drupal/getjwtonlogin:^2.0' 'mjordan/islandora_bagger_integration' && \
-    #composer update -d /var/www/drupal 'drupal/getjwtonlogin:^2.0' 'mjordan/islandora_bagger_integration' && \
     composer install -d /var/www/drupal && \
     cleanup.sh
-
-#RUN \
-#    cd /var/www/drupal && \
-#    grep getjwt * && \
-#    grep bag * \
-#    grep a

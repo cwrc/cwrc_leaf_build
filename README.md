@@ -44,72 +44,67 @@ The CWRC Repository customizations include Drupal modules and configurations tha
 
 ## Update
 
+* update repository versions
+  * Update `docker-bake.hcl` variable `LEAF_VERSION` with the container tag from <https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8>
 * Check if local files have changed in <https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8> since that last local update
+  * check `docker/drupal/rootfs` (the known files as of August 2024 are included in the following bullet points)
 * `core.extension.yml` merge changes
   * example using `sdiff` in interactive mode with `l` and `r` signifying how to manually merge the local CWRC customizations with the leaf-base changes
+    * ToDo: investigate using `yq` to automatically update the yaml like the json later in this process
   * If not done then expect Drupal errors regarding missing modules
 
-``` bash
-$ sdiff -s -o /tmp/z ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
-  config_translation: 0                                       <
-%l
-                                                              >   getjwtonlogin: 0
-%r
-                                                              >   islandora_bagger_integration: 0
-%r
-  locale: 0                                                   <
-%l
-  message: 0                                                  <
-  message_notify: 0                                           <
-%l
-  page_manager: 0                                             <
-  page_manager_ui: 0                                          <
-%l
-  private_message: 0                                          <
-  private_message_notify: 0                                   <
-%l
-  user_csv_import: 0                                          <
-%l
+  ``` bash
+  $ sdiff -s -o /tmp/z ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
+    config_translation: 0                                       <
+  %l
+                                                                >   getjwtonlogin: 0
+  %r
+                                                                >   islandora_bagger_integration: 0
+  %r
+    locale: 0                                                   <
+  %l
+    message: 0                                                  <
+    message_notify: 0                                           <
+  %l
+    page_manager: 0                                             <
+    page_manager_ui: 0                                          <
+  %l
+    private_message: 0                                          <
+    private_message_notify: 0                                   <
+  %l
+    user_csv_import: 0                                          <
+  %l
 
-$ diff /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
-$ mv /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
-```
+  $ diff /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
+  $ mv /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
+  ```
 
 * `composer.json` & `composer.lock`
 
   * copy from leaf-base
-    * `cp ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/`
-    * `cp ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.lock docker/drupal/rootfs/var/www/drupal/`
+
+    ``` bash
+    cp ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/
+    cp ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.lock docker/drupal/rootfs/var/www/drupal/
+    ```
+
   * add back CWRC customizations
-    * add Git repository manually in the `repositories` section of composer.json
-      * the CLI function has drawbacks: <https://jmichaelward.com/managing-composer-repositories-via-the-command-line/>
-        * `composer config -d docker/drupal/rootfs/var/www/drupal/ repositories.0 '{"type": "git","url": "https://github.com/cwrc/islandora_bagger_integration.git","no-api": true}'`
-
-      ``` json
-          {
-            "type": "git",
-            "url": "https://github.com/cwrc/islandora_bagger_integration.git",
-            "no-api": true
-          },
-      ```
-
-    * execute the helper to build the updated `composer.json` and `composer.lock` files
+    * The next step automatically adds the following via `jq` command
+      * updates composer.json
+      * updates composer.lock
+      * execute the helper to build the updated `composer.json` and `composer.lock` files
 
       ``` bash
       docker buildx bake drupal-composer-helper  --set "drupal.tags=ghcr.io/cwrc/drupal:local"
       id=$(docker create "ghcr.io/cwrc/drupal:local")
-      docker cp $id:/var/www/drupal/composer.json /tmp/composer.json
-      docker cp $id:/var/www/drupal/composer.lock /tmp/composer.lock
+      docker cp $id:/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/
+      docker cp $id:/var/www/drupal/composer.lock /docker/drupal/rootfs/var/www/drupal/
       docker rm -v $id
       ```
 
     * review changes
-    * update repository versions
 
-      ``` bash
-      cp /tmp/composer.lock docker/drupal/rootfs/var/www/drupal/
-      cp /tmp/composer.json docker/drupal/rootfs/var/www/drupal/
-      ```
+### Notes
 
 * tried using sdiff on the composer.json/lock file but
   * `composer.lock` doesn't like manual editing - `content-hash` is outdated
@@ -119,6 +114,20 @@ $ mv /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
     $ sdiff -s -o /tmp/z ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/composer.json
     $ mv  /tmp/z docker/drupal/rootfs/var/www/drupal/composer.json
     ```
+
+* tried using the composer tools to update `composer.json` and add CWRC custom Git repository in the `repositories` section of composer.json
+  * the `composer` CLI function has drawbacks: <https://jmichaelward.com/managing-composer-repositories-via-the-command-line/>
+    * `composer config -d docker/drupal/rootfs/var/www/drupal/ repositories.0 '{"type": "git","url": "https://github.com/cwrc/islandora_bagger_integration.git","no-api": true}'`
+  * the following needs to be added to the `composer.json`
+
+    ``` json
+        {
+          "type": "git",
+          "url": "https://github.com/cwrc/islandora_bagger_integration.git",
+          "no-api": true
+        },
+    ```
+
 
 
 ## Building a local image
