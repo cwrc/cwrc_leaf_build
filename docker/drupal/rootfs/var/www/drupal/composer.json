@@ -169,6 +169,7 @@
     "drupal/facets_date_range": "^1.0@beta",
     "drupal/features": "^3.11",
     "drupal/field_group": "*",
+    "drupal/field_hidden": "^2.1",
     "drupal/field_permissions": "*",
     "drupal/filefield_paths": "1.x-dev",
     "drupal/fixed_block_content": "^1.1",
@@ -197,6 +198,7 @@
     "drupal/pathauto": "^1.8",
     "drupal/pdf": "^1.1",
     "drupal/private_message": "^3.0",
+    "drupal/profile": "^1.10",
     "drupal/profile_switcher": "^1.0@alpha",
     "drupal/quickedit": "^1.0",
     "drupal/quicktabs": "^3.0@alpha",
@@ -228,6 +230,7 @@
     "drupal/views_field_view": "^1.0@beta",
     "drupal/views_infinite_scroll": "^2.0",
     "drupal/views_local_tasks": "^1.0",
+    "drupal/weight": "^3.4",
     "drush/drush": "^12",
     "islandora-rdm/islandora_fits": "dev-8.x-1.x",
     "islandora/controlled_access_terms": "*",
@@ -373,7 +376,8 @@
         "group_membership_duplication": "https://www.drupal.org/files/issues/2019-07-09/group_membership_duplication-3016197-10.patch",
         "Use of static in callables is deprecated ": "https://www.drupal.org/files/issues/2023-07-25/3349565-6.patch",
         "Revisions no longer work since Drupal 9.3": "https://www.drupal.org/files/issues/2024-02-29/revision-no-longer-works-3254038-23.patch",
-        "Add revisions tab on groups": "https://www.drupal.org/files/issues/2023-08-24/groups-have-two-revisions-tabs.patch"
+        "Add revisions tab on groups": "https://www.drupal.org/files/issues/2023-08-24/groups-have-two-revisions-tabs.patch",
+        "WSOD Error when editing group type permissions": "https://www.drupal.org/files/issues/2022-08-25/group-3294949-2.patch"
       },
       "drupal/bootstrap_barrio": {
         "Missing library fix": "patches/bootstrap-barrio-file-library-fix.patch"
@@ -393,13 +397,14 @@
       "drupal/core": {
         "Parent menu exist check D10.2": "patches/core/parent_menu_exist.patch",
         "PO file import error": "https://www.drupal.org/files/issues/2021-12-19/2449895_92.patch",
-        "Default value of selected options not working": "https://www.drupal.org/files/issues/2023-11-02/5220.patch"
+        "Default value of selected options not working": "https://www.drupal.org/files/issues/2023-11-02/5220.patch",
+        "RuntimeException: Adding non-existent permissions to a role is not allowed": "https://www.drupal.org/files/issues/2024-06-03/3358586-36.patch"
       },
       "drupal/quickedit": {
         "Uncaught TypeError: _.where & _.pluck is not a function": "https://www.drupal.org/files/issues/2023-12-27/type-error-where-pluck-not-a-function-3410956-3.patch"
       },
       "drupal/social_link_field": {
-        "Can't create new Social Link field in Drupal 10": "https://www.drupal.org/files/issues/2024-02-15/social_link_field-3410562-6.patch"
+        "Multiple Icon Issues": "https://www.drupal.org/files/issues/2024-04-10/myPatch.diff"
       },
       "drupal/require_revision_log_message": {
         "can this be made to work with media as well": "https://www.drupal.org/files/issues/2023-04-24/3293857-worksformedia-10.patch"
@@ -416,6 +421,9 @@
       },
       "drupal/layout_builder_perms": {
         "Fix not valid context for entity context when editing the default layout entity types": "https://www.drupal.org/files/issues/2023-12-15/not_valid_context-3392780-reroll_patch_from_4-7_0.patch"
+      },
+      "drupal/profile": {
+        "Make Profiles Translatable": "https://www.drupal.org/files/issues/2021-02-10/2899744-40.patch"
       }
     },
     "drupal-core-project-message": {

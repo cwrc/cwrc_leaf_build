@@ -98,7 +98,7 @@ The CWRC Repository customizations include Drupal modules and configurations tha
       docker buildx bake drupal-composer-helper  --set "drupal.tags=ghcr.io/cwrc/drupal:local"
       id=$(docker create "ghcr.io/cwrc/drupal:local")
       docker cp $id:/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/
-      docker cp $id:/var/www/drupal/composer.lock /docker/drupal/rootfs/var/www/drupal/
+      docker cp $id:/var/www/drupal/composer.lock docker/drupal/rootfs/var/www/drupal/
       docker rm -v $id
       ```
 
