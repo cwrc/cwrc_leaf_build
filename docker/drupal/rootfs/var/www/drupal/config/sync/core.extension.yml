@@ -64,6 +64,7 @@ module:
   features_ui: 0
   field: 0
   field_group: 0
+  field_hidden: 0
   field_permissions: 0
   field_ui: 0
   file: 0
@@ -80,6 +81,7 @@ module:
   geolocation: 0
   getjwtonlogin: 0
   gnode: 0
+  gprofile: 0
   group: 0
   group_content_menu: 0
   groupmedia: 0
@@ -161,6 +163,7 @@ module:
   prepopulate: 0
   private_message: 0
   private_message_notify: 0
+  profile: 0
   quickedit: 0
   quicktabs: 0
   quicktabs_jqueryui: 0
@@ -211,6 +214,7 @@ module:
   views_local_tasks: 0
   views_show_more: 0
   views_ui: 0
+  weight: 0
   workflows: 0
   ds: 1
   pathauto: 1
