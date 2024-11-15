@@ -171,6 +171,7 @@
     "drupal/field_group": "*",
     "drupal/field_hidden": "^2.1",
     "drupal/field_permissions": "*",
+    "drupal/file_extractor": "^4.1",
     "drupal/filefield_paths": "1.x-dev",
     "drupal/fixed_block_content": "^1.1",
     "drupal/fontawesome": "^2.17",
@@ -398,7 +399,8 @@
         "Parent menu exist check D10.2": "patches/core/parent_menu_exist.patch",
         "PO file import error": "https://www.drupal.org/files/issues/2021-12-19/2449895_92.patch",
         "Default value of selected options not working": "https://www.drupal.org/files/issues/2023-11-02/5220.patch",
-        "RuntimeException: Adding non-existent permissions to a role is not allowed": "https://www.drupal.org/files/issues/2024-06-03/3358586-36.patch"
+        "RuntimeException: Adding non-existent permissions to a role is not allowed": "https://www.drupal.org/files/issues/2024-06-03/3358586-36.patch",
+        "User can't reference unpublished content": "https://www.drupal.org/files/issues/2024-04-16/2845144-95.patch"
       },
       "drupal/quickedit": {
         "Uncaught TypeError: _.where & _.pluck is not a function": "https://www.drupal.org/files/issues/2023-12-27/type-error-where-pluck-not-a-function-3410956-3.patch"
@@ -424,6 +426,9 @@
       },
       "drupal/profile": {
         "Make Profiles Translatable": "https://www.drupal.org/files/issues/2021-02-10/2899744-40.patch"
+      },
+      "drupal/better_exposed_filters": {
+        "Enable changing sort_bef_combine parameter key": "https://www.drupal.org/files/issues/2023-05-12/enable_changing_sort_combine_key-3359254-6.patch"
       }
     },
     "drupal-core-project-message": {

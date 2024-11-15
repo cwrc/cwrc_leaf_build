@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1bab524150b7b5799202da18b2788bc",
+    "content-hash": "0c774f3edafa4fffb54509b12893bb6b",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -4782,6 +4782,59 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/field_permissions",
                 "issues": "https://www.drupal.org/project/issues/field_permissions"
+            }
+        },
+        {
+            "name": "drupal/file_extractor",
+            "version": "4.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/file_extractor.git",
+                "reference": "4.1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/file_extractor-4.1.3.zip",
+                "reference": "4.1.3",
+                "shasum": "425a2ee3af2e6010da018dde5bfc0bb8eb89463c"
+            },
+            "require": {
+                "composer-runtime-api": "^2.0",
+                "drupal/core": "^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/search_api": "^1.31",
+                "drupal/search_api_solr": "^4.3",
+                "symfony/process": ">=3.0"
+            },
+            "suggest": {
+                "symfony/process": "To be able to use some provided extraction plugins."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.1.3",
+                    "datestamp": "1718743895",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "grimreaper",
+                    "homepage": "https://www.drupal.org/user/2388214"
+                }
+            ],
+            "description": "Extract file entity content.",
+            "homepage": "https://www.drupal.org/project/file_extractor",
+            "support": {
+                "source": "https://git.drupalcode.org/project/file_extractor"
             }
         },
         {
