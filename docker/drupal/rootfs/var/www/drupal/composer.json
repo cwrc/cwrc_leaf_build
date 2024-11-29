@@ -141,11 +141,11 @@
     "drupal/auto_entitylabel": "^3.0",
     "drupal/backup_migrate": "^5.0",
     "drupal/bartik": "^1.0",
-    "drupal/bibcite": "^2.0@beta",
+    "drupal/bibcite": "^3.0@beta",
     "drupal/bootstrap_barrio": "^5.5",
     "drupal/bootstrap_layout_builder": "^2.1",
     "drupal/bootstrap_sass": "^5.0",
-    "drupal/citation_select": "^1.0@beta",
+    "drupal/citation_select": "^2.0@beta",
     "drupal/ckeditor": "^1.0",
     "drupal/color": "^1.0",
     "drupal/color_field": "^3.0",
@@ -301,16 +301,17 @@
     "sort-packages": true,
     "allow-plugins": {
       "composer/installers": true,
-      "drupal/console-extend-plugin": true,
       "cweagans/composer-patches": true,
-      "oomphinc/composer-installers-extender": true,
-      "wikimedia/composer-merge-plugin": true,
-      "zaporylie/composer-drupal-optimizations": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "drupal/console-extend-plugin": true,
       "drupal/core-composer-scaffold": true,
       "drupal/core-project-message": true,
+      "oomphinc/composer-installers-extender": true,
+      "php-http/discovery": true,
       "phpstan/extension-installer": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true,
-      "php-http/discovery": true
+      "tbachert/spi": true,
+      "wikimedia/composer-merge-plugin": true,
+      "zaporylie/composer-drupal-optimizations": true
     }
   },
   "extra": {
