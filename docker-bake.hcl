@@ -9,7 +9,7 @@ variable "REPOSITORY" {
 # Not the one displayed on DockerHub.
 # Variable names with '_TAG' and '_REPOSITORY' fail with docker/bake-action
 variable "LEAF_VERSION" {
-    default = "3.0.14"
+    default = "3.0.16"
     }
 variable "LEAF_REGISTRY" {
     default = "registry.gitlab.com/calincs/cwrc/leaf/leaf-base-i8"
