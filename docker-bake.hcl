@@ -9,7 +9,7 @@ variable "REPOSITORY" {
 # Not the one displayed on DockerHub.
 # Variable names with '_TAG' and '_REPOSITORY' fail with docker/bake-action
 variable "LEAF_VERSION" {
-    default = "3.0.18"
+    default = "local"
     }
 variable "LEAF_REGISTRY" {
     default = "registry.gitlab.com/calincs/cwrc/leaf/leaf-base-i8"
@@ -40,6 +40,34 @@ target "docker-metadata-action" {}
 ###############################################################################
 # Helper Targets.
 ###############################################################################
+
+target "leaf-version-update-helper" {
+  inherits = ["common"]
+  context = "."
+  dockerfile = "docker/drupal/Dockerfile-bake-update-helper"
+  contexts = {
+  }
+  tags = [
+    "${REPOSITORY}/leaf-version-update-helper:${TAG}"
+  ]
+  args = {
+    LEAF_VERSION="${LEAF_VERSION}"
+  }
+}
+
+
+target "drupal-core-extension-helper" {
+  inherits = ["common"]
+  context = "docker/drupal"
+  dockerfile = "Dockerfile-core-extensions-helper"
+  contexts = {
+  }
+  tags = [
+    "${REPOSITORY}/drupal-core-extension-helper:${TAG}"
+  ]
+}
+
+
 target "drupal-composer-helper" {
   inherits = ["common"]
   context = "docker/drupal"
@@ -51,6 +79,7 @@ target "drupal-composer-helper" {
     "${REPOSITORY}/drupal:${TAG}"
   ]
 }
+
 
 ###############################################################################
 # Target.

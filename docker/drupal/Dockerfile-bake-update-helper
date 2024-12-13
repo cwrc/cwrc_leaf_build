@@ -1,0 +1,31 @@
+# syntax=docker/dockerfile:1.5.1
+FROM python:3.12-alpine
+
+ARG \
+  TARGETARCH \
+  LEAF_VERSION
+
+
+ENV \
+  LEAF_VERSION ${LEAF_VERSION}
+
+
+# Copy local customizations
+COPY --link docker/drupal/scripts /scripts/
+
+COPY --link docker-bake-leaf-version-override.json /tmp/docker-bake-leaf-version-override.json
+
+# Update docker-bake with the specified LEAF version 
+# * core.extension 
+RUN --mount=type=cache,id=custom-drupal-composer-${TARGETARCH},sharing=locked,target=/root/.composer/cache \
+    export VIRTUAL_ENV=venv && \
+    python -m venv ${VIRTUAL_ENV} && \
+    source ${VIRTUAL_ENV}/bin/activate  && \
+    python -m pip install python-hcl2 && \
+    echo "Running ${LEAF_VERSION}" && \
+    python /scripts/leaf_version_bake.py \
+      --src /tmp/docker-bake-leaf-version-override.json \
+      --value "${LEAF_VERSION}"
+
+#    export PATH=$PATH:/scripts/merge_cwrc/bin && \                        
+
