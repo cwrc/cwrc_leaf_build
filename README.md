@@ -44,6 +44,8 @@ The CWRC Repository customizations include Drupal modules and configurations tha
 
 ## Update
 
+Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/auto.sh) is a first attempt at automating the update process described below.
+
 * update repository versions
   * Update `docker-bake.hcl` variable `LEAF_VERSION` with the container tag from <https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8>
 * Check if local files have changed in <https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8> since that last local update
@@ -78,6 +80,26 @@ The CWRC Repository customizations include Drupal modules and configurations tha
   $ diff /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
   $ mv /tmp/z docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
   ```
+
+* `core.extensions`
+
+  * copy from leaf-base
+    ``` bash
+    cp ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/
+    ```
+
+  * add back CWRC customizations
+    * core.extension.yml: `getjwtonlogin: 0` & `islandora_bagger_integration: 0`
+
+
+      ``` bash
+      export FROM=ghcr.io/cwrc/drupal-core-extension-helper:local
+      docker buildx bake drupal-core-extension-helper --set "drupal.tags=${FROM}"
+      id=$(docker create "${FROM}")
+      docker cp $id:/tmp/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
+      docker rm -v $id
+      ```
+
 
 * `composer.json` & `composer.lock`
 

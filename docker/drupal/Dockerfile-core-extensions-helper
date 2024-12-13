@@ -1,0 +1,25 @@
+# syntax=docker/dockerfile:1.5.1
+FROM python:3.12-alpine
+
+ARG TARGETARCH
+
+# Copy local customizations
+COPY --link scripts /scripts/
+
+COPY --link rootfs /
+
+
+# Add CWRC customizations to
+# * core.extension 
+RUN --mount=type=cache,id=custom-drupal-composer-${TARGETARCH},sharing=locked,target=/root/.composer/cache \
+    export VIRTUAL_ENV=/scripts/merge_cwrc_venv && \
+    python -m venv ${VIRTUAL_ENV} && \
+    source ${VIRTUAL_ENV}/bin/activate  && \
+    python -m pip install pyyaml && \
+    python /scripts/merge_cwrc_customizations_drupal_core_extensions_yaml.py \
+      --input /scripts/core.extension_cwrc_customizations_template.yml \
+      --input /var/www/drupal/config/sync/core.extension.yml  \
+      --output /tmp/core.extension.yml
+
+#    export PATH=$PATH:/scripts/merge_cwrc/bin && \                        
+

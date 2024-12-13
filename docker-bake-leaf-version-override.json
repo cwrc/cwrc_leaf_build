@@ -1,0 +1,7 @@
+{
+    "variable": {
+        "LEAF_VERSION": {
+            "default": "3.0.18"
+        }
+    }
+}
