@@ -93,6 +93,7 @@ jobs:
             default
           files: |
             ./docker-bake.hcl
+            ./docker-bake-leaf-version-override.json
             ${{ steps.meta.outputs.bake-file }}
           #cache-from: type=gha
           #cache-to: type=gha,mode=max
