@@ -1,8 +1,13 @@
 
-git switch main
-git pull
+BRANCH=$(git branch --show-current)
+if [ "${BRANCH}" != 'main' ]; then
+  echo "Not on the main branch: ${BRANCH}"
+  # git switch main && git pull
+  exit 1
+fi
+
 LEAF_VERSION_LOCAL=$(jq -r '.variable.LEAF_VERSION.default' docker-bake-leaf-version-override.json)
-echo ${LEAF_VERSION_LOCAL}
+echo "LOCAL LEAF: ${LEAF_VERSION_LOCAL}"
 
 # Get remote LEAF tag
 LEAF_VERSION=$(
@@ -12,15 +17,16 @@ LEAF_VERSION=$(
     sort -V | \
     tail -n1
 )
-echo $LEAF_VERSION
+echo "Remote LEAF: ${LEAF_VERSION}"
 
 if [ "${LEAF_VERSION_LOCAL}" = "${LEAF_VERSION}" ]; then
   echo "Version up-to-date ${LEAF_VERSION_LOCAL}"
-  exit
+  exit 2
 else
-  git checkout -b "leaf_update_${LEAF_VERSION}"
-  update_leaf_version_test(${LEAF_VERSION})
-  git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
+  echo "Version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
+  #git checkout -b "leaf_update_${LEAF_VERSION}"
+  update_leaf_version_test ${LEAF_VERSION}
+  #git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
 fi
 
 function update_leaf_version_test() {
