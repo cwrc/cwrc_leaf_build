@@ -6,6 +6,7 @@ if [ "${BRANCH}" != 'main' ]; then
   exit 1
 fi
 
+# Get local LEAF version
 LEAF_VERSION_LOCAL=$(jq -r '.variable.LEAF_VERSION.default' docker-bake-leaf-version-override.json)
 echo "LOCAL LEAF: ${LEAF_VERSION_LOCAL}"
 
@@ -19,20 +20,24 @@ LEAF_VERSION=$(
 )
 echo "Remote LEAF: ${LEAF_VERSION}"
 
+# Test if LEAF version update needed
 if [ "${LEAF_VERSION_LOCAL}" = "${LEAF_VERSION}" ]; then
   echo "Version up-to-date ${LEAF_VERSION_LOCAL}"
   exit 2
 else
-  echo "Version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
-  #git checkout -b "leaf_update_${LEAF_VERSION}"
+  echo "Starting LEAF version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
+  git checkout -b "leaf_update_${LEAF_VERSION}"
   update_leaf_version_test ${LEAF_VERSION}
-  #git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
+  update_leaf_version ${LEAF_VERSION}
+  git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
 fi
 
+#
 function update_leaf_version_test() {
   echo $1
 }
 
+#
 function update_leaf_version() {
   # Check Docker Buildx Bake 
   # If TAG and bake var different then update
