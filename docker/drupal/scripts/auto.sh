@@ -1,37 +1,3 @@
-
-BRANCH=$(git branch --show-current)
-if [ "${BRANCH}" != 'main' ]; then
-  echo "Not on the main branch: ${BRANCH}"
-  # git switch main && git pull
-  exit 1
-fi
-
-# Get local LEAF version
-LEAF_VERSION_LOCAL=$(jq -r '.variable.LEAF_VERSION.default' docker-bake-leaf-version-override.json)
-echo "LOCAL LEAF: ${LEAF_VERSION_LOCAL}"
-
-# Get remote LEAF tag
-LEAF_VERSION=$(
-  git ls-remote --tags https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8.git | \
-    awk -F/ '{print $NF}' | \
-    grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+$' | \
-    sort -V | \
-    tail -n1
-)
-echo "Remote LEAF: ${LEAF_VERSION}"
-
-# Test if LEAF version update needed
-if [ "${LEAF_VERSION_LOCAL}" = "${LEAF_VERSION}" ]; then
-  echo "Version up-to-date ${LEAF_VERSION_LOCAL}"
-  exit 2
-else
-  echo "Starting LEAF version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
-  git checkout -b "leaf_update_${LEAF_VERSION}"
-  update_leaf_version_test ${LEAF_VERSION}
-  update_leaf_version ${LEAF_VERSION}
-  git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
-fi
-
 #
 function update_leaf_version_test() {
   echo $1
@@ -67,3 +33,42 @@ function update_leaf_version() {
   docker cp $id:/var/www/drupal/composer.lock docker/drupal/rootfs/var/www/drupal/
   docker rm -v $id
 }
+
+
+
+BRANCH=$(git branch --show-current)
+if [ "${BRANCH}" != 'main' ]; then
+  echo "Not on the main branch: ${BRANCH}"
+  # git switch main && git pull
+  exit 1
+fi
+
+# Get local LEAF version
+LEAF_VERSION_LOCAL=$(jq -r '.variable.LEAF_VERSION.default' docker-bake-leaf-version-override.json)
+echo "LOCAL LEAF: ${LEAF_VERSION_LOCAL}"
+
+# Get remote LEAF tag
+LEAF_VERSION=$(
+  git ls-remote --tags https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8.git | \
+    awk -F/ '{print $NF}' | \
+    grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+$' | \
+    sort -V | \
+    tail -n1
+)
+echo "Remote LEAF: ${LEAF_VERSION}"
+
+# Test if LEAF version update needed
+if [ "${LEAF_VERSION_LOCAL}" = "${LEAF_VERSION}" ]; then
+  echo "Version up-to-date ${LEAF_VERSION_LOCAL}"
+  exit 2
+elif [ -z "${LEAF_VERSION_LOCAL}" ]; then
+  echo "LEAF_VERSION_LOCAL missing; check if jq is installed or in the wrong (non-root directory)"
+  exit 2
+else
+  echo "Starting LEAF version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
+  git checkout -b "leaf_update_${LEAF_VERSION}"
+  update_leaf_version_test ${LEAF_VERSION}
+  update_leaf_version ${LEAF_VERSION}
+  git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
+fi
+

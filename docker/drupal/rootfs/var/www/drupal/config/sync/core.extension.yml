@@ -1,6 +1,6 @@
-_core:
-  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
+  getjwtonlogin: 0
+  islandora_bagger_integration: 0
   action: 0
   addtoany: 0
   admin_toolbar: 0
@@ -80,7 +80,6 @@ module:
   fontawesome: 0
   form_options_attributes: 0
   geolocation: 0
-  getjwtonlogin: 0
   gnode: 0
   gprofile: 0
   group: 0
@@ -93,7 +92,6 @@ module:
   inline_entity_form: 0
   islandora: 0
   islandora_audio: 0
-  islandora_bagger_integration: 0
   islandora_breadcrumbs: 0
   islandora_core_feature: 0
   islandora_fits: 0
@@ -223,6 +221,8 @@ module:
   views: 10
   paragraphs: 11
   minimal: 1000
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 theme:
   bootstrap_barrio: 0
   seven: 0
