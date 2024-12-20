@@ -25835,6 +25835,7 @@
         "drupal/bibcite": 10,
         "drupal/citation_select": 10,
         "drupal/config_distro": 15,
+        "drupal/context": 5,
         "drupal/facets_custom_label": 5,
         "drupal/facets_date_range": 10,
         "drupal/filefield_paths": 20,
@@ -25855,12 +25856,12 @@
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
         "islandora/openseadragon": 20,
-        "mjordan/islandora_workbench_integration": 20,
-        "drupal/context": 5
+        "mjordan/islandora_bagger_integration": 20,
+        "mjordan/islandora_workbench_integration": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
