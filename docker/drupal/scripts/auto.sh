@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 #
 function update_leaf_version_test() {
   echo $1
@@ -5,6 +7,13 @@ function update_leaf_version_test() {
 
 #
 function update_leaf_version() {
+
+  # Check if Docker is not running
+  if ! docker info > /dev/null 2>&1; then
+    echo "Docker is not running."
+    exit 5
+  fi
+
   # Check Docker Buildx Bake 
   # If TAG and bake var different then update
   # Leverage ability to use multiple file precedence (last take precedence) - https://docs.docker.com/build/bake/reference/
@@ -66,9 +75,10 @@ elif [ -z "${LEAF_VERSION_LOCAL}" ]; then
   exit 2
 else
   echo "Starting LEAF version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
-  git checkout -b "leaf_update_${LEAF_VERSION}"
+  GIT_BRANCH="leaf_update_${LEAF_VERSION}"
+  git checkout -b "leaf_update_${GIT_BRANCH}"
   update_leaf_version_test ${LEAF_VERSION}
   update_leaf_version ${LEAF_VERSION}
-  git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push
+  git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push origin ${GIT_BRANCH}
 fi
 
