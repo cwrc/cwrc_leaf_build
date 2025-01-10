@@ -226,7 +226,7 @@
     "drupal/view_custom_table": "^2.0",
     "drupal/views_block_area": "^1.0@beta",
     "drupal/views_bulk_edit": "^2.6",
-    "drupal/views_bulk_operations": "^4.2",
+    "drupal/views_bulk_operations": "^4.3",
     "drupal/views_exposed_filter_blocks": "^1.0",
     "drupal/views_field_view": "^1.0@beta",
     "drupal/views_infinite_scroll": "^2.0",
@@ -379,7 +379,9 @@
         "Use of static in callables is deprecated ": "https://www.drupal.org/files/issues/2023-07-25/3349565-6.patch",
         "Revisions no longer work since Drupal 9.3": "https://www.drupal.org/files/issues/2024-02-29/revision-no-longer-works-3254038-23.patch",
         "Add revisions tab on groups": "https://www.drupal.org/files/issues/2023-08-24/groups-have-two-revisions-tabs.patch",
-        "WSOD Error when editing group type permissions": "https://www.drupal.org/files/issues/2022-08-25/group-3294949-2.patch"
+        "WSOD Error when editing group type permissions": "https://www.drupal.org/files/issues/2022-08-25/group-3294949-2.patch",
+        "uasort deprecation in PHP 8": "https://www.drupal.org/files/issues/2023-09-27/uasort-comparison-3210808-2.patch",
+        "403 error if you use VBO in group related views": "https://www.drupal.org/files/issues/2024-06-04/group-3020883-51.patch"
       },
       "drupal/bootstrap_barrio": {
         "Missing library fix": "patches/bootstrap-barrio-file-library-fix.patch"
