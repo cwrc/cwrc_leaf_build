@@ -43,7 +43,7 @@ function update_leaf_version() {
   docker rm -v $id
 }
 
-
+# Main
 
 BRANCH=$(git branch --show-current)
 if [ "${BRANCH}" != 'main' ]; then
@@ -81,4 +81,3 @@ else
   update_leaf_version ${LEAF_VERSION}
   git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push origin ${GIT_BRANCH}
 fi
-
