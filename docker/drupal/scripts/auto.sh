@@ -76,7 +76,7 @@ elif [ -z "${LEAF_VERSION_LOCAL}" ]; then
 else
   echo "Starting LEAF version update from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}"
   GIT_BRANCH="leaf_update_${LEAF_VERSION}"
-  git checkout -b "leaf_update_${GIT_BRANCH}"
+  git checkout -b "${GIT_BRANCH}"
   update_leaf_version_test ${LEAF_VERSION}
   update_leaf_version ${LEAF_VERSION}
   git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push origin ${GIT_BRANCH}
