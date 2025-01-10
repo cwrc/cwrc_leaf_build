@@ -1,7 +1,7 @@
 {
     "variable": {
         "LEAF_VERSION": {
-            "default": "3.0.19"
+            "default": "2.0.20"
         }
     }
 }
