@@ -22,7 +22,7 @@ function update_leaf_version() {
   LEAF_VERSION=${LEAF_VERSION} docker buildx bake -f docker-bake.hcl -f docker-bake-leaf-version-override.json leaf-version-update-helper --set "drupal.tags=${FROM}"
   id=$(docker create "${FROM}")
   echo "Container ${id}"
-  docker cp $id:/tmp/docker-bake-leaf-version-override.json . 
+  docker cp $id:/tmp/docker-bake-leaf-version-override.json docker-bake-leaf-version-override.json
   head docker-bake-leaf-version-override.json
   docker rm -v $id
 
@@ -35,6 +35,7 @@ function update_leaf_version() {
   id=$(docker create "${FROM}")
   echo "Container ${id}"
   docker cp $id:/tmp/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
+  git status
   docker rm -v $id
 
   # Update Drupal composer.json and composer.lock
@@ -47,6 +48,7 @@ function update_leaf_version() {
   echo "Container ${id}"
   docker cp $id:/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/
   docker cp $id:/var/www/drupal/composer.lock docker/drupal/rootfs/var/www/drupal/
+  git status
   docker rm -v $id
 }
 
@@ -86,6 +88,8 @@ else
   git checkout -b "${GIT_BRANCH}"
   update_leaf_version_test ${LEAF_VERSION}
   update_leaf_version ${LEAF_VERSION}
+  git status
+  git --no-pager diff | head -100
   git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION}" && git push origin ${GIT_BRANCH}
 fi
 
