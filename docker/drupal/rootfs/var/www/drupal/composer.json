@@ -187,6 +187,7 @@
     "drupal/layout_builder_blocks": "^1.1",
     "drupal/layout_builder_perms": "2.x-dev",
     "drupal/layout_builder_restrictions": "^2.18",
+    "drupal/linked_data_field": "^1.1",
     "drupal/mailsystem": "^4.3",
     "drupal/manage_display": "^3.0",
     "drupal/matomo": "^1.17",

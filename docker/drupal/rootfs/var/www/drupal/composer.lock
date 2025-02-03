@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "8511211fd87eaaad71a4b59853f28cb1",
+  "content-hash": "94616e9543bb0e8f6bfffe5156e2ad1f",
   "packages": [
     {
       "name": "adci/full-name-parser",
@@ -6528,6 +6528,62 @@
       }
     },
     {
+      "name": "drupal/linked_data_field",
+      "version": "1.1.0",
+      "source": {
+        "type": "git",
+        "url": "https://git.drupalcode.org/project/linked_data_field.git",
+        "reference": "1.1.0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://ftp.drupal.org/files/projects/linked_data_field-1.1.0.zip",
+        "reference": "1.1.0",
+        "shasum": "bdd636fd336420bb741a4d16546114470da5a38c"
+      },
+      "require": {
+        "drupal/core": "^9.3 || ^10 || ^11",
+        "mtdowling/jmespath.php": "^2.5"
+      },
+      "type": "drupal-module",
+      "extra": {
+        "drupal": {
+          "version": "1.1.0",
+          "datestamp": "1735266682",
+          "security-coverage": {
+            "status": "covered",
+            "message": "Covered by Drupal's security advisory policy"
+          }
+        }
+      },
+      "notification-url": "https://packages.drupal.org/8/downloads",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Alexander O'Neill (alxp)",
+          "homepage": "https://www.drupal.org/u/alxp",
+          "email": "aloneill@gmail.com",
+          "role": "Maintainer"
+        },
+        {
+          "name": "Alan Stanley (Alan_Stanley)",
+          "homepage": "https://www.drupal.org/u/Alan_Stanley",
+          "role": "Contributor"
+        }
+      ],
+      "description": "Query SPARQL and other endpoints as autocomplete sources",
+      "homepage": "https://www.drupal.org/project/linked_data_field",
+      "keywords": [
+        "Drupal"
+      ],
+      "support": {
+        "source": "http://cgit.drupalcode.org/linked_data_field",
+        "issues": "https://www.drupal.org/project/issues/linked_data_field"
+      }
+    },
+    {
       "name": "drupal/mailsystem",
       "version": "4.4.0",
       "source": {
@@ -12412,6 +12468,72 @@
         "source": "https://github.com/lanthaler/JsonLD/tree/1.2.1"
       },
       "time": "2022-09-29T08:45:17+00:00"
+    },
+    {
+      "name": "mtdowling/jmespath.php",
+      "version": "2.8.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/jmespath/jmespath.php.git",
+        "reference": "a2a865e05d5f420b50cc2f85bb78d565db12a6bc"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/a2a865e05d5f420b50cc2f85bb78d565db12a6bc",
+        "reference": "a2a865e05d5f420b50cc2f85bb78d565db12a6bc",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.2.5 || ^8.0",
+        "symfony/polyfill-mbstring": "^1.17"
+      },
+      "require-dev": {
+        "composer/xdebug-handler": "^3.0.3",
+        "phpunit/phpunit": "^8.5.33"
+      },
+      "bin": [
+        "bin/jp.php"
+      ],
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "2.8-dev"
+        }
+      },
+      "autoload": {
+        "files": [
+          "src/JmesPath.php"
+        ],
+        "psr-4": {
+          "JmesPath\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Graham Campbell",
+          "email": "hello@gjcampbell.co.uk",
+          "homepage": "https://github.com/GrahamCampbell"
+        },
+        {
+          "name": "Michael Dowling",
+          "email": "mtdowling@gmail.com",
+          "homepage": "https://github.com/mtdowling"
+        }
+      ],
+      "description": "Declaratively specify how to extract elements from a JSON document",
+      "keywords": [
+        "json",
+        "jsonpath"
+      ],
+      "support": {
+        "issues": "https://github.com/jmespath/jmespath.php/issues",
+        "source": "https://github.com/jmespath/jmespath.php/tree/2.8.0"
+      },
+      "time": "2024-09-04T18:46:31+00:00"
     },
     {
       "name": "myclabs/php-enum",

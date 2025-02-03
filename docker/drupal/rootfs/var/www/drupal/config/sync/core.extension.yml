@@ -126,10 +126,12 @@ module:
   leaf_dtoc: 0
   leaf_group: 0
   leaf_repository: 0
+  leaf_taxonomy: 0
   leaf_workflow: 0
   leaf_writer: 0
   libraries: 0
   link: 0
+  linked_data_field: 0
   locale: 0
   mailsystem: 0
   manage_display: 0
