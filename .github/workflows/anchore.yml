@@ -50,27 +50,18 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    # https://github.com/docker/setup-buildx-action
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    # https://github.com/docker/bake-action
-    - name: build local container
-      uses: docker/bake-action@v5
-      with:
-        push: false
-        load: true
-        targets: drupal
-        set: |
-          *.tags=ghcr.io/cwrc/drupal:local
+    - name: Build the Docker image
+      run: docker buildx bake --set "leaf-bagger.tags=localbuild/testimage:latest"
 
     # https://github.com/anchore/scan-action
-    - name: Scan image
-      uses: anchore/scan-action@v3
+    - name: Run the Anchore Grype scan action
+      uses: anchore/scan-action@3343887d815d7b07465f6fdcd395bd66508d486a #v3.6.4
+      id: scan
       with:
-        image: "ghcr.io/cwrc/drupal:local"
+        image: "localbuild/testimage:latest"
+        # fail-build: true
         fail-build: false
-        # severity-cutoff: critical
+        severity-cutoff: critical
 
     # https://github.com/github/codeql-action
     - name: Upload vulnerability report
