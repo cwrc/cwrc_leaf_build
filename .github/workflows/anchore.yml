@@ -67,8 +67,8 @@ jobs:
         files: |
           ./docker-bake.hcl
           ./docker-bake-leaf-version-override.json
-        set: |
-          *.tags=localbuild/testimage:latest
+        #set: |
+          #*.tags=localbuild/testimage:latest
 
     # https://github.com/anchore/scan-action
     - name: Run the Anchore Grype scan action
