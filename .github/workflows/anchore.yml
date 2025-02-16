@@ -14,6 +14,7 @@ name: Anchore Grype vulnerability scan
 on:
   schedule:
     - cron: '39 23 * * 1'
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
