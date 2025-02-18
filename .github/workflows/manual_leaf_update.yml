@@ -38,4 +38,10 @@ jobs:
       # Build new branch with LEAF updates 
       - name: Run auto update
         run: |
-          bash ./docker/drupal/scripts/auto.sh
+          # bash ./docker/drupal/scripts/auto.sh
+          export VIRTUAL_ENV=venv && \
+          python -m venv ${VIRTUAL_ENV} && \
+          source ${VIRTUAL_ENV}/bin/activate  && \
+          python -m pip install python-hcl2 && \
+          python -m pip install pyyaml && \
+          bash ./docker/drupal/scripts/manual_leaf_update_helper.sh
