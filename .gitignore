@@ -63,3 +63,6 @@
 
 # Ignore 
 .swp
+
+# Local customizations
+./docker/drupal/rootfs/var/www/drupal/composer.json.bak
