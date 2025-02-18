@@ -44,6 +44,12 @@ The CWRC Repository customizations include Drupal modules and configurations tha
 
 ## Update
 
+Note: 2025-02-18 - [./docker/drupal/scripts/manual_leaf_update_helper.sh](./docker/drupal/scripts/manual_leaf_update_helper.sh) is a second attempt at automating the update process described below. See [.github/workflows/manual_leaf_update.yml](.github/workflows/manual_leaf_update.yml) for a GitHub Action that creates a GitHub Pull Request -- also, see the GitHub action details for how to run the script locally and the necessary installed modules. At the moment there is minimal error handling so check the resulting Pull Request for:
+
+* docker-bake-leaf-version-override.json: contains the correct LEAF version
+* core.extension.yml contains the CWRC customizations (islandora_bagger, getjwtonlogin, etc as defined in `docker/drupal/scripts/core.extension_cwrc_customizations_template.yml`)
+* composer.json and composer.lock contain the CWRC customizations (islandora_bagger, getjwtonlogin, etc)
+
 Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/auto.sh) is a first attempt at automating the update process described below.
 
 * update repository versions

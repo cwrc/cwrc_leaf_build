@@ -117,5 +117,5 @@ else
     # git --no-pager diff
 
     echo "Commit and push changes to ${GIT_BRANCH}"
-    #git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION_REMOTE}" && git push origin ${GIT_BRANCH}
+    git commit -a -m "Bump LEAF version from ${LEAF_VERSION_LOCAL} to ${LEAF_VERSION_REMOTE}" && git push origin ${GIT_BRANCH}
 fi
