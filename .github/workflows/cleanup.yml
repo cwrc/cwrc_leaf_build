@@ -28,5 +28,9 @@ jobs:
       - uses: dataaxiom/ghcr-cleanup-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          keep-n-untagged: 3
+          # https://github.com/dataaxiom/ghcr-cleanup-action?tab=readme-ov-file
+          older-than: 6 months 
+          keep-n-tagged: 5
+          delete-untagged: true
+          dry-run: false 
 
