@@ -12,7 +12,7 @@ dependencies:
 id: preservation_show_node_timestamps
 label: 'Preservation: show node timestamps'
 module: views
-description: 'Used by the preservation workflow to list all the Drupal nodes and their last modified timestamps'
+description: 'Used by the preservation workflow to list all the Drupal Nodes and their last modified timestamps'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -75,6 +75,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -221,6 +222,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 1000
           total_pages: null
           id: 0

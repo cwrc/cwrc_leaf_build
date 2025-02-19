@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   getjwtonlogin: 0
   islandora_bagger_integration: 0
@@ -223,8 +225,6 @@ module:
   views: 10
   paragraphs: 11
   minimal: 1000
-_core:
-  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 theme:
   bootstrap_barrio: 0
   seven: 0

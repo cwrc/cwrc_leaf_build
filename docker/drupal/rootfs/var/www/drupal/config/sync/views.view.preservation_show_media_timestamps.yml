@@ -12,7 +12,7 @@ dependencies:
 id: preservation_show_media_timestamps
 label: 'Preservation: show media timestamps'
 module: views
-description: ''
+description: 'Used by the preservation workflow to list all the Drupal Media and their last modified timestamps'
 tag: ''
 base_table: media_field_data
 base_field: mid
@@ -75,6 +75,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -220,6 +221,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 1000
           total_pages: null
           id: 0
