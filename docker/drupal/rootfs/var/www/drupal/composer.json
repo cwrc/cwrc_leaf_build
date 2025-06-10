@@ -138,6 +138,7 @@
     "cwrc/leafwriter": "^3.5.0",
     "drupal/admin_toolbar": "^3.4",
     "drupal/adminimal_theme": "^1.7",
+    "drupal/advagg": "^6.0@alpha",
     "drupal/auto_entitylabel": "^3.0",
     "drupal/backup_migrate": "^5.0",
     "drupal/bartik": "^1.0",
@@ -177,12 +178,15 @@
     "drupal/fixed_block_content": "^1.1",
     "drupal/flexible_permissions": "^2.0",
     "drupal/fontawesome": "^2.17",
+    "drupal/fontyourface": "^4.0",
     "drupal/geolocation": "^3.12",
     "drupal/getjwtonlogin": "^2.0",
     "drupal/group": "^2.3",
     "drupal/group_content_menu": "^2.0",
     "drupal/groupmedia": "^3.0",
     "drupal/inline_entity_form": "^1.0@RC",
+    "drupal/islandora": "^2.10",
+    "drupal/islandora_mirador": "*",
     "drupal/jquery_ui_autocomplete": "^2.0",
     "drupal/jquery_ui_datepicker": "^2.1",
     "drupal/jquery_ui_menu": "^2.0",
@@ -199,6 +203,7 @@
     "drupal/menu_link_attributes": "^1.5",
     "drupal/metatag": "^1.16",
     "drupal/mimemail": "^1.0@alpha",
+    "drupal/openseadragon": "2.2",
     "drupal/page_manager": "^4.0@RC",
     "drupal/paragraphs": "^1.10",
     "drupal/paragraphs_jquery_ui_accordion": "^1.5",
@@ -226,6 +231,7 @@
     "drupal/term_merge": "^2.0@beta",
     "drupal/tmgmt": "^1.12",
     "drupal/tmgmt_google": "^1.1",
+    "drupal/token_custom": "^1.0@beta",
     "drupal/twig_tweak": "^3.1",
     "drupal/twitter_block": "^3.0@alpha",
     "drupal/ultimate_cron": "^2.0@alpha",
@@ -242,10 +248,6 @@
     "drupal/weight": "^3.4",
     "drush/drush": "^12",
     "islandora-rdm/islandora_fits": "dev-8.x-1.x",
-    "islandora/controlled_access_terms": "*",
-    "islandora/islandora": "^2.10",
-    "islandora/islandora_mirador": "*",
-    "islandora/openseadragon": "2.x-dev",
     "j7mbo/twitter-api-php": "^1.0",
     "library/pdf.js": "2.4.456",
     "mjordan/islandora_bagger_integration": "dev-jefferya/v0.0.3",
@@ -328,7 +330,8 @@
       "file-mapping": {
         "[web-root]/sites/default/default.settings.php": {
           "append": "assets/default.settings.php"
-        }
+        },
+        "[web-root]/robots.txt": "assets/robots.txt"
       }
     },
     "installer-paths": {
@@ -373,7 +376,7 @@
         "Normalize": "patches/controlled_access_terms.normalizer.patch"
       },
       "drupal/content_lock": {
-        "Add Drush commands": "patches/content_lock_group_permission.patch",
+        "Add Drush commands": "patches/content_lock_group_permission_fix.patch",
         "Fix PHP 8.2+ deprecation notices": "https://www.drupal.org/files/issues/2023-05-22/3343964-5.patch",
         "Cannot redeclare $time": "https://www.drupal.org/files/issues/2024-12-05/content_lock_time.patch"
       },
@@ -433,6 +436,9 @@
       },
       "drupal/better_exposed_filters": {
         "Enable changing sort_bef_combine parameter key": "https://www.drupal.org/files/issues/2023-05-12/enable_changing_sort_combine_key-3359254-6.patch"
+      },
+      "drupal/token": {
+        "token insert textarea focus - layout builder block": "patches/layout-builder-specific-token-apply-fix.patch"
       }
     },
     "drupal-core-project-message": {
