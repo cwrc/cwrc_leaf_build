@@ -291,7 +291,7 @@
     "drupal/registration_role": "*",
     "drupal/sendgrid_integration": "*",
     "drupal/social_link_field": "*",
-    "drupal/token_filter": "*",
+    "drupal/token_filter": "^2.2",
     "drupal/transliterate_filenames": "*",
     "drupal/twig_xdebug": "^1.2",
     "drupal/views_block_filter_block": "*",
@@ -382,7 +382,8 @@
       },
       "drupal/group": {
         "Get group id from url on group content page": "https://www.drupal.org/files/issues/2020-02-10/views-cont-filter-to-get-gid-from-url-or-group-content-3112501.patch",
-        "403 error if you use VBO in group related views": "https://www.drupal.org/files/issues/2024-06-04/group-3020883-51.patch"
+        "403 error if you use VBO in group related views": "https://www.drupal.org/files/issues/2024-06-04/group-3020883-51.patch",
+        "Get a token of a node's parent group to create a pathauto pattern": "https://www.drupal.org/files/issues/2025-05-05/2774827-127.patch"
       },
       "drupal/bootstrap_barrio": {
         "Missing library fix": "patches/bootstrap-barrio-file-library-fix.patch"
