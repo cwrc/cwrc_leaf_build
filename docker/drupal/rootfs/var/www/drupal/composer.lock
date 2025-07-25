@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5eb3dfe6748870b1b5a8b9394ebb8151",
+    "content-hash": "c9966f48ad9438f099b7c9559940c80f",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -5085,7 +5085,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/filefield_paths.git",
-                "reference": "651d5eeffaa665b13750ade213697e97b664219d"
+                "reference": "42e2cc050523327eb008c14005de194a515a575c"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -5106,8 +5106,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta8+3-dev",
-                    "datestamp": "1737036503",
+                    "version": "8.x-1.0-beta8+4-dev",
+                    "datestamp": "1748732435",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -5120,7 +5120,7 @@
             ],
             "authors": [
                 {
-                    "name": "Deciphered",
+                    "name": "deciphered",
                     "homepage": "https://www.drupal.org/user/103796"
                 },
                 {
@@ -21203,7 +21203,7 @@
                     "homepage": "https://www.drupal.org/user/53892"
                 },
                 {
-                    "name": "Deciphered",
+                    "name": "deciphered",
                     "homepage": "https://www.drupal.org/user/103796"
                 },
                 {
