@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9966f48ad9438f099b7c9559940c80f",
+    "content-hash": "5180c2651e03dd7b9172088944799b2b",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -1240,10 +1240,10 @@
         },
         {
             "name": "cwrc/leafwriter",
-            "version": "3.6.0",
+            "version": "3.9.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/@cwrc/leafwriter/-/leafwriter-3.6.0.tgz"
+                "url": "https://registry.npmjs.org/@cwrc/leafwriter/-/leafwriter-3.9.0.tgz"
             },
             "type": "drupal-library",
             "extra": {
@@ -2180,6 +2180,54 @@
                 "source": "https://git.drupalcode.org/project/block_class",
                 "issues": "https://www.drupal.org/project/issues/block_class",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/block_exclude_pages",
+            "version": "2.2.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/block_exclude_pages.git",
+                "reference": "2.2.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/block_exclude_pages-2.2.0-alpha2.zip",
+                "reference": "2.2.0-alpha2",
+                "shasum": "d0a4040d4ee2ca8ad18f85a1b0eaddb480eb87b4"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.0-alpha2",
+                    "datestamp": "1733505982",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jcontreras",
+                    "homepage": "https://www.drupal.org/user/2422356"
+                }
+            ],
+            "description": "adds an exclude pages field for blocks",
+            "homepage": "https://www.drupal.org/project/block_exclude_pages",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/block_exclude_pages",
+                "issues": "https://www.drupal.org/project/issues/block_exclude_pages"
             }
         },
         {
@@ -4074,6 +4122,62 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
+            }
+        },
+        {
+            "name": "drupal/dblog_filter",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/dblog_filter.git",
+                "reference": "8.x-4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dblog_filter-8.x-4.1.zip",
+                "reference": "8.x-4.1",
+                "shasum": "e735805c062ebb8056e783ecad771f18551c0527"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-4.1",
+                    "datestamp": "1710968931",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ajay_reddy",
+                    "homepage": "https://www.drupal.org/user/3261994"
+                },
+                {
+                    "name": "harika gujjula",
+                    "homepage": "https://www.drupal.org/user/2978505"
+                },
+                {
+                    "name": "N.kishorekumar",
+                    "homepage": "https://www.drupal.org/user/2887361"
+                },
+                {
+                    "name": "rajeshwari10",
+                    "homepage": "https://www.drupal.org/user/3270754"
+                }
+            ],
+            "description": "Enables to log DB messages based on type and severity.",
+            "homepage": "https://www.drupal.org/project/dblog_filter",
+            "support": {
+                "source": "https://git.drupalcode.org/project/dblog_filter"
             }
         },
         {
@@ -26410,6 +26514,7 @@
     "stability-flags": {
         "drupal/advagg": 15,
         "drupal/bibcite": 10,
+        "drupal/block_exclude_pages": 15,
         "drupal/citation_select": 10,
         "drupal/config_distro": 15,
         "drupal/context": 5,

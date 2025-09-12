@@ -90,13 +90,13 @@
       "package": [
         {
           "name": "cwrc/leafwriter",
-          "version": "3.6.0",
+          "version": "3.9.0",
           "type": "drupal-library",
           "extra": {
             "installer-name": "leafwriter"
           },
           "dist": {
-            "url": "https://registry.npmjs.org/@cwrc/leafwriter/-/leafwriter-3.6.0.tgz",
+            "url": "https://registry.npmjs.org/@cwrc/leafwriter/-/leafwriter-3.9.0.tgz",
             "type": "tar"
           }
         }
@@ -144,6 +144,7 @@
     "drupal/bartik": "^1.0",
     "drupal/bibcite": "^3.0@beta",
     "drupal/block_class": "^4.0",
+    "drupal/block_exclude_pages": "^2.2@alpha",
     "drupal/bootstrap_barrio": "^5.5",
     "drupal/bootstrap_layout_builder": "^2.1",
     "drupal/bootstrap_sass": "^5.0",
@@ -163,6 +164,7 @@
     "drupal/core-composer-scaffold": "^10",
     "drupal/core-project-message": "^10",
     "drupal/ctools": "^4.0",
+    "drupal/dblog_filter": "^4.1",
     "drupal/ds": "^3.13",
     "drupal/entity_browser": "^2.6",
     "drupal/environment_indicator": "^4.0",
@@ -367,7 +369,7 @@
     },
     "patches": {
       "drupal/group_content_menu": {
-        "group menu not visible node page": "patches/group-menu-block-issue-fix.patch"
+        "group menu not visible node page": "patches/group-menu-block-on-node-page.patch"
       },
       "drupal/backup_migrate": {
         "Add Drush commands": "https://www.drupal.org/files/issues/2021-08-09/3223057-10.patch"
@@ -407,7 +409,8 @@
         "RuntimeException: Adding non-existent permissions to a role is not allowed": "https://www.drupal.org/files/issues/2024-06-03/3358586-36.patch",
         "User can't reference unpublished content": "https://www.drupal.org/files/issues/2024-04-16/2845144-95.patch",
         "Call to a member function setSyncing() on null when installing a module": "https://www.drupal.org/files/issues/2024-10-01/Drupal_10_3.patch",
-        "Configuration import fails: Undefined array key moderation_state BaseFieldOverride": "https://www.drupal.org/files/issues/2024-08-21/2321071-74.patch"
+        "Configuration import fails: Undefined array key moderation_state BaseFieldOverride": "https://www.drupal.org/files/issues/2024-08-21/2321071-74.patch",
+        "Fix Log error + visual warning for missing or broken block": "https://www.drupal.org/files/issues/2024-06-26/3049332_d10.3.0.patch"
       },
       "drupal/quickedit": {
         "Uncaught TypeError: _.where & _.pluck is not a function": "https://www.drupal.org/files/issues/2023-12-27/type-error-where-pluck-not-a-function-3410956-3.patch"

@@ -16,6 +16,7 @@ module:
   block: 0
   block_class: 0
   block_content: 0
+  block_exclude_pages: 0
   bootstrap_layout_builder: 0
   bootstrap_styles: 0
   breakpoint: 0
@@ -48,6 +49,7 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
+  dblog_filter: 0
   devel: 0
   dynamic_page_cache: 0
   editor: 0
