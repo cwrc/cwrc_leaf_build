@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5180c2651e03dd7b9172088944799b2b",
+    "content-hash": "bf42994dee46e9811a7bd8a75c4ec290",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -1793,6 +1793,55 @@
                 "source": "https://git.drupalcode.org/project/advagg",
                 "issues": "https://drupal.org/project/issues/advagg",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/asset_injector",
+            "version": "2.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/asset_injector.git",
+                "reference": "8.x-2.21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/asset_injector-8.x-2.21.zip",
+                "reference": "8.x-2.21",
+                "shasum": "24dc111e995d6a33cb9f11f106b0d1e716e92767"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.21",
+                    "datestamp": "1723044656",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Decker",
+                    "homepage": "https://www.drupal.org/u/pookmish"
+                },
+                {
+                    "name": "Axel Rutz",
+                    "homepage": "https://www.drupal.org/u/axelrutz"
+                }
+            ],
+            "description": "Adds CSS or JS to the page output based on configurable rules.",
+            "homepage": "http://drupal.org/project/asset_injector",
+            "support": {
+                "source": "https://git.drupalcode.org/project/asset_injector",
+                "issues": "https://www.drupal.org/project/issues/asset_injector"
             }
         },
         {
@@ -3632,8 +3681,12 @@
                     "homepage": "https://www.drupal.org/user/31731"
                 },
                 {
-                    "name": "Kristen Pol",
+                    "name": "kristen pol",
                     "homepage": "https://www.drupal.org/user/8389"
+                },
+                {
+                    "name": "mandclu",
+                    "homepage": "https://www.drupal.org/user/52136"
                 },
                 {
                     "name": "nedjo",
@@ -3652,7 +3705,7 @@
                     "homepage": "https://www.drupal.org/user/3640109"
                 },
                 {
-                    "name": "Steven Jones",
+                    "name": "steven jones",
                     "homepage": "https://www.drupal.org/user/99644"
                 },
                 {
@@ -6048,30 +6101,30 @@
         },
         {
             "name": "drupal/islandora",
-            "version": "2.14.2",
+            "version": "2.17.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/islandora.git",
-                "reference": "2.14.2"
+                "reference": "2.17.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/islandora-2.14.2.zip",
-                "reference": "2.14.2",
-                "shasum": "1027bd3de6a4e40c20c01a2397b167f837e1bdd2"
+                "url": "https://ftp.drupal.org/files/projects/islandora-2.17.2.zip",
+                "reference": "2.17.2",
+                "shasum": "cd65590ba61618923deb73deeb47c7f52d6bb5e6"
             },
             "require": {
-                "drupal/action": "*",
+                "drupal/action": "^0.2",
                 "drupal/context": "^4 || ^5@RC",
                 "drupal/context_ui": "*",
-                "drupal/core": "^10.2",
+                "drupal/core": "^10.3 || ^11",
                 "drupal/ctools": "^3.8 || ^4",
                 "drupal/eva": "^3.0",
                 "drupal/file_replace": "^1.1",
                 "drupal/filehash": "^2 || ^3",
                 "drupal/flysystem": "^2.0@alpha",
                 "drupal/jsonld": "^2 || ^3",
-                "drupal/jwt": "^1.1 || ^2",
+                "drupal/jwt": "^2.2 || ^3",
                 "drupal/migrate_plus": "^5.1 || ^6",
                 "drupal/migrate_source_csv": "^3.4",
                 "drupal/prepopulate": "^2.2",
@@ -6097,8 +6150,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.14.2",
-                    "datestamp": "1741628690",
+                    "version": "2.17.2",
+                    "datestamp": "1758217798",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

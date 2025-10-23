@@ -139,6 +139,7 @@
     "drupal/admin_toolbar": "^3.4",
     "drupal/adminimal_theme": "^1.7",
     "drupal/advagg": "^6.0@alpha",
+    "drupal/asset_injector": "^2.21",
     "drupal/auto_entitylabel": "^3.0",
     "drupal/backup_migrate": "^5.0",
     "drupal/bartik": "^1.0",
@@ -368,6 +369,9 @@
       ]
     },
     "patches": {
+      "drupal/linked_data_field": {
+        "Add LINCS plugin": "patches/linked_data_field_lincs_plugin.patch"
+      },
       "drupal/group_content_menu": {
         "group menu not visible node page": "patches/group-menu-block-on-node-page.patch"
       },
@@ -443,6 +447,9 @@
       },
       "drupal/token": {
         "token insert textarea focus - layout builder block": "patches/layout-builder-specific-token-apply-fix.patch"
+      },
+      "drupal/views_bulk_operations": {
+        "translation issue - fallback check": "patches/language-translation-fix-vbo.patch"
       }
     },
     "drupal-core-project-message": {
