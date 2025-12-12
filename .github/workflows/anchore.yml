@@ -73,7 +73,7 @@ jobs:
 
     # https://github.com/anchore/scan-action
     - name: Run the Anchore Grype scan action
-      uses: anchore/scan-action@3343887d815d7b07465f6fdcd395bd66508d486a #v3.6.4
+      uses: anchore/scan-action@3c9a191a0fbab285ca6b8530b5de5a642cba332f #v7.2.2
       id: scan
       with:
         image: "localbuild/testimage:latest"
