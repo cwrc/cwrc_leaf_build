@@ -86,7 +86,7 @@ jobs:
         uses: docker/bake-action@v6 #v5.3.0
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          load: true
+          #load: true
           #provenance: true
           #sbom: true
           targets: |
