@@ -13,7 +13,7 @@ dependencies:
 id: preservation_entity_drupal_group
 label: preservation_entity_drupal_group
 module: views
-description: ''
+description: 'Given an node ID, output the Drupal Group information'
 tag: ''
 base_table: group_relationship_field_data
 base_field: id
@@ -101,7 +101,7 @@ display:
           entity_type: group
           entity_field: label
           plugin_id: field
-          label: ''
+          label: group_title
           exclude: false
           alter:
             alter_text: false
@@ -164,7 +164,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ''
+          label: group_description
           exclude: false
           alter:
             alter_text: false
@@ -228,7 +228,7 @@ display:
           entity_type: group
           entity_field: id
           plugin_id: field
-          label: ''
+          label: group_id
           exclude: false
           alter:
             alter_text: false
@@ -294,7 +294,7 @@ display:
           entity_type: group
           entity_field: uuid
           plugin_id: field
-          label: ''
+          label: group_uuid
           exclude: false
           alter:
             alter_text: false
@@ -698,9 +698,30 @@ display:
         type: data_field
         options:
           field_options:
-            label:
-              alias: ''
-              raw_output: false
+            nid:
+              alias: node_id
+              raw_output: true
+            label_1:
+              alias: group_label
+              raw_output: true
+            field_group_description:
+              alias: group_description
+              raw_output: true
+            id:
+              alias: group_id
+              raw_output: true
+            uuid:
+              alias: group_uuid
+              raw_output: true
+            id_1:
+              alias: group_relationship_id
+              raw_output: true
+            uuid_1:
+              alias: group_relationship_uuid
+              raw_output: true
+            title:
+              alias: group_relationship_title
+              raw_output: true
       display_extenders: {  }
       path: views/preservation_entity_drupal_group/node/%node
       auth:
@@ -716,4 +737,3 @@ display:
         - url
       tags:
         - 'config:field.storage.group.field_group_description'
-
