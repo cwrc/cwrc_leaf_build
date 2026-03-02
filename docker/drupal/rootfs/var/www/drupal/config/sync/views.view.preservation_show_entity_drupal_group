@@ -4,14 +4,16 @@ status: true
 dependencies:
   config:
     - field.storage.group.field_group_description
+    - user.role.administrator
   module:
     - group
     - node
     - rest
     - serialization
     - text
-id: preservation_entity_drupal_group
-label: preservation_entity_drupal_group
+    - user
+id: preservation_show_entity_drupal_group
+label: 'Preservation: show entity drupal group'
 module: views
 description: 'Given an node ID, output the Drupal Group information'
 tag: ''
@@ -575,8 +577,10 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -680,6 +684,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.group.field_group_description'
   rest_export_1:
@@ -735,5 +740,6 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user.roles
       tags:
         - 'config:field.storage.group.field_group_description'
