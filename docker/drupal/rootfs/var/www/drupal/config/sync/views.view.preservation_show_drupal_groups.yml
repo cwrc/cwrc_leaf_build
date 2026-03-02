@@ -12,8 +12,8 @@ dependencies:
     - serialization
     - text
     - user
-id: preservation_show_entity_drupal_group
-label: 'Preservation: show entity drupal group'
+id: preservation_show_drupal_groups
+label: 'Preservation: show drupal groups'
 module: views
 description: 'Given an node ID, output the Drupal Group information'
 tag: ''
@@ -728,7 +728,7 @@ display:
               alias: group_relationship_title
               raw_output: true
       display_extenders: {  }
-      path: views/preservation_entity_drupal_group/node/%node
+      path: views/preservation/v2/show_drupal_groups/node/%node
       auth:
         - basic_auth
         - jwt_auth
