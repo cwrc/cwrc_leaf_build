@@ -12,7 +12,7 @@ dependencies:
     - serialization
     - text
     - user
-id: preservation_show_drupal_groups
+id: preservation_show_drupal_groups_v2
 label: 'Preservation: show drupal groups'
 module: views
 description: 'Given an node ID, output the Drupal Group information'
