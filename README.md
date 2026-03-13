@@ -12,9 +12,9 @@ The CWRC Repository customizations include Drupal modules and configurations tha
 
 * Drupal views to indicate new/changed items since a given date (paginated) - used by <https://github.com/cwrc/leaf-isle-bagger> to determine which items to add to the preservation workflow
   * views.view.preservation_show_media_timestamps.yml
-    * <https://${SITE_URL}/view/views/preservation_show_node_timestamps?page=${page}&_format=json>
+    * <https://${SITE_URL}/views/preservation/v2/show_node_timestamps?page=${page}&_format=json>
   * views.view.preservation_show_node_timestamps.yml
-    * <https://${SITE_URL}/views/preservation_show_media_timestamps?page=${page}&_format=json>
+    * <https://${SITE_URL}/views/preservation/v2/show_media_timestamps?page=${page}&_format=json>
 
 * Adds the Drupal module `drupal/getjwtonlogin` used by <https://github.com/cwrc/leaf-isle-bagger> and <https://github.com/cwrc/islandora_bagger> (forked from mjordan) to acquire a JWT token within the login response with the JWT token used to pull media/content from the Drupal site for preservation
 
@@ -42,23 +42,52 @@ The CWRC Repository customizations include Drupal modules and configurations tha
 #BAGGER_DEFAULT_PER_BAG_REGISTER_BAGS_WITH_ISLANDORA=false
 ```
 
-## Update
+The contents of an archival package are detailed in <https://github.com/cwrc/islandora_bagger>. The `./src/Plugin` directory describes the plugins. The default list is defined by BAGGER_PLUGIN_LIST <https://github.com/cwrc/isle-bagger/blob/main/Dockerfile#L53>.
 
-Note: 2025-02-18 - [./docker/drupal/scripts/manual_leaf_update_helper.sh](./docker/drupal/scripts/manual_leaf_update_helper.sh) is a second attempt at automating the update process described below. See [.github/workflows/manual_leaf_update.yml](.github/workflows/manual_leaf_update.yml) for a GitHub Action that creates a GitHub Pull Request -- also, see the GitHub action details for how to run the script locally and the necessary installed modules. At the moment there is minimal error handling so check the resulting Pull Request for:
+See the [Islandora Bagger Plugins section](https://github.com/cwrc/islandora_bagger/tree/jefferya/v2.1.0?tab=readme-ov-file#plugins) for more details, a summary follows:
 
-* docker-bake-leaf-version-override.json: contains the correct LEAF version
-* core.extension.yml contains the CWRC customizations (islandora_bagger, getjwtonlogin, etc as defined in `docker/drupal/scripts/core.extension_cwrc_customizations_template.yml`)
-* composer.json and composer.lock contain the CWRC customizations (islandora_bagger, getjwtonlogin, etc)
+* "AddBasicTags"
+* "AddFileFromTemplate"
+* "AddMedia": Drupal media associations
+* "AddMediaJson": media metadata
+* "AddMediaJsonld": media metadata
+* "AddNodeCsv": ?_format=csv output (no translation; no paragraph or taxonomy relationship content)
+* "AddNodeJson": ?_format=json output (no translation; no paragraph or taxonomy relationship content)
+* "AddNodeJsonld": ?_format=jsonld output (no translation; no paragraph or taxonomy relationship content)
+* "AddNodeJsonTranslation": translation (no paragraph or taxonomy relationship content)
+* "AddNodeJsonViaJsonApi": Output from the Drupal JSON:API core module includes translation, paragraph and taxonomy relationship content
+* "AddGroupJson": Drupal Group module output
+
+## Update LEAF
+
+### Via GitHub Action
+
+See [.github/workflows/manual_leaf_update.yml](.github/workflows/manual_leaf_update.yml) for the GitHub Action details. The main component calls [./docker/drupal/scripts/manual_leaf_update_helper.sh](./docker/drupal/scripts/manual_leaf_update_helper.sh) to automate the update process. The steps:
+
+* Updates the LEAF version to the highest version number tag in [LEAF-Base](https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8)
+* Updates the Drupal compser.json/lock & adds the CWRC specific modules
+* Updates the core.extension.yml & adds the CWRC specific modules
+* Creates a GitHub Pull Request
+
+The GitHub action details how to run the script locally and the necessary installed modules. At the moment there is minimal error handling so check the resulting GitHub Pull Request for the following:
+
+* [docker-bake-leaf-version-override.json](./docker-bake-leaf-version-override.json): contains the correct LEAF version
+* [core.extension.yml](./docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml) contains the CWRC customizations (islandora_bagger, getjwtonlogin, etc. as defined in `docker/drupal/scripts/core.extension_cwrc_customizations_template.yml`)
+* [composer.json and composer.lock](./docker/drupal/rootfs/var/www/drupal/) contain the CWRC customizations (islandora_bagger, getjwtonlogin, etc.)
+
+Merger the PR when ready. Then create a new tag  which will build and add the continer image to the GitHub package registry.
+
+### Previous manual process (obsolete)
 
 Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/auto.sh) is a first attempt at automating the update process described below.
 
-* update repository versions
+* Update repository versions
   * Update `docker-bake.hcl` variable `LEAF_VERSION` with the container tag from <https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8>
 * Check if local files have changed in <https://gitlab.com/calincs/cwrc/leaf/leaf-base-i8> since that last local update
   * check `docker/drupal/rootfs` (the known files as of August 2024 are included in the following bullet points)
 * `core.extension.yml` merge changes
   * example using `sdiff` in interactive mode with `l` and `r` signifying how to manually merge the local CWRC customizations with the leaf-base changes
-    * ToDo: investigate using `yq` to automatically update the yaml like the json later in this process
+    * To Do: investigate using `yq` to automatically update the YAML like the JSON later in this process
   * If not done then expect Drupal errors regarding missing modules
 
   ``` bash
@@ -90,13 +119,13 @@ Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/aut
 * `core.extensions`
 
   * copy from leaf-base
+
     ``` bash
     cp ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/
     ```
 
   * add back CWRC customizations
     * core.extension.yml: `getjwtonlogin: 0` & `islandora_bagger_integration: 0`
-
 
       ``` bash
       export FROM=ghcr.io/cwrc/drupal-core-extension-helper:local
@@ -105,7 +134,6 @@ Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/aut
       docker cp $id:/tmp/core.extension.yml docker/drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
       docker rm -v $id
       ```
-
 
 * `composer.json` & `composer.lock`
 
@@ -118,8 +146,8 @@ Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/aut
 
   * add back CWRC customizations
     * The next step automatically adds the following via `jq` command
-      * updates composer.json
-      * updates composer.lock
+      * update composer.json
+      * update composer.lock
       * execute the helper to build the updated `composer.json` and `composer.lock` files
 
       ``` bash
@@ -139,8 +167,8 @@ Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/aut
   * if only change the `composer.json` then `composer install` flags the differences between the composer.json and composer.lock hence the `composer require` commands in `docker/drupal/Dockerfile-composer-helper`
 
     ``` bash
-    $ sdiff -s -o /tmp/z ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/composer.json
-    $ mv  /tmp/z docker/drupal/rootfs/var/www/drupal/composer.json
+    sdiff -s -o /tmp/z ../leaf-base-i8/docker/drupal/rootfs/var/www/drupal/composer.json docker/drupal/rootfs/var/www/drupal/composer.json
+    mv  /tmp/z docker/drupal/rootfs/var/www/drupal/composer.json
     ```
 
 * tried using the composer tools to update `composer.json` and add CWRC custom Git repository in the `repositories` section of composer.json
@@ -156,8 +184,11 @@ Note: 2024-12-13 - [./docker/drupal/scripts/auto.sh](./docker/drupal/scripts/aut
         },
     ```
 
-
-
 ## Building a local image
 
 * `docker buildx bake --set "drupal.tags=ghcr.io/cwrc/drupal:local"`
+
+## Using CWRC within a leaf-base-i8 instance
+
+* copy the composer.json, composer.lock, core.extension.yml to the leaf-base-i8 instance
+* build and up the containers from empty volumes
