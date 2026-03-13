@@ -254,7 +254,7 @@
     "islandora-rdm/islandora_fits": "dev-8.x-1.x",
     "j7mbo/twitter-api-php": "^1.0",
     "library/pdf.js": "2.4.456",
-    "mjordan/islandora_bagger_integration": "dev-jefferya/v0.0.3",
+    "mjordan/islandora_bagger_integration": "dev-jefferya/v0.0.4",
     "mjordan/islandora_workbench_integration": "dev-main",
     "oomphinc/composer-installers-extender": "^2",
     "vlucas/phpdotenv": "4.2.0",
@@ -405,7 +405,8 @@
         "Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2023-11-08/title_field_for_manage_display-D10upgrade.patch"
       },
       "drupal/rest_oai_pmh": {
-        "Array check issue fix": "patches/array_check_rest_oai_pmh.patch"
+        "Array check issue fix": "patches/array_check_rest_oai_pmh.patch",
+        "Update MODS template": "patches/rest_oai_pmh_update_mods.patch"
       },
       "drupal/core": {
         "Parent menu exist check D10.2": "patches/core/parent_menu_exist.patch",
