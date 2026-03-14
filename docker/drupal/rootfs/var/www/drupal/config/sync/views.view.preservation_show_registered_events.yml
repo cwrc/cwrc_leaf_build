@@ -521,9 +521,73 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        created:
+          id: created
+          table: islandora_bagger_integration_bag_log
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
       arguments: {  }
-      filters: {  }
+      filters:
+        created:
+          id: created
+          table: islandora_bagger_integration_bag_log
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: date
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: Timestamp
+            description: ''
+            use_operator: false
+            operator: created_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              limited_access: '0'
+              differential_access_open: '0'
+              differential_access_limited: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: serializer
         options:
@@ -553,6 +617,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - request_format
+        - url
         - url.query_args
         - user.roles
       tags: {  }
@@ -595,6 +660,8 @@ display:
       contexts:
         - 'languages:language_interface'
         - request_format
+        - url
         - url.query_args
         - user.roles
       tags: {  }
+
