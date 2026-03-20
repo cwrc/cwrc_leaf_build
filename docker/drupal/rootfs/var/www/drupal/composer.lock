@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c226c366bd71d29ba914f98cd85b375a",
+    "content-hash": "3490b767418ff41b7e39bfc5840a497a",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -1344,10 +1344,10 @@
         },
         {
             "name": "cwrc/leafwriter",
-            "version": "3.9.0",
+            "version": "4.1.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/@cwrc/leafwriter/-/leafwriter-3.9.0.tgz"
+                "url": "https://registry.npmjs.org/@cwrc/leafwriter/-/leafwriter-4.1.0.tgz"
             },
             "type": "drupal-library",
             "extra": {
