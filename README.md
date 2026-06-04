@@ -16,7 +16,7 @@ The CWRC Repository customizations include Drupal modules and configurations tha
   * views.view.preservation_show_node_timestamps.yml
     * <https://${SITE_URL}/views/preservation/v2/show_media_timestamps?page=${page}&_format=json>
   * views.view.preservation_show_drupal_group_timestamps_v2.yml
-    * <https://${SITE_URL}/views/preservation/v2/show_drupal_group_timestamps/?page=${page}_format=json>
+    * <https://${SITE_URL}/views/preservation/v2/show_drupal_group_timestamps/?page=${page}group_changed=2026-01-01&group_relationship_changed=2026-06-06>
 
 * Adds the Drupal module `drupal/getjwtonlogin` used by <https://github.com/cwrc/leaf-isle-bagger> and <https://github.com/cwrc/islandora_bagger> (forked from mjordan) to acquire a JWT token within the login response with the JWT token used to pull media/content from the Drupal site for preservation
 
