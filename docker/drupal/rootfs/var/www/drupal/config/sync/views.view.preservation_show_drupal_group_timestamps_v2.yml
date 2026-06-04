@@ -1,21 +1,19 @@
-uuid: 9c9b1901-2a32-4cc7-9f25-36bf0be7e176
+uuid: 492713d9-fdb0-4d86-b64b-27d3592d79ae
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.group.field_group_description
     - user.role.administrator
   module:
     - group
     - node
     - rest
     - serialization
-    - text
     - user
-id: preservation_show_drupal_groups_v2
-label: 'Preservation: show drupal groups'
+id: preservation_show_drupal_group_timestamps_v2
+label: 'Preservation: show drupal group timestamps'
 module: views
-description: 'Given an node ID, output the Drupal Group information'
+description: 'List of Drupal Group and Group Relationships that have changed since a given date/time.'
 tag: ''
 base_table: group_relationship_field_data
 base_field: id
@@ -158,68 +156,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_group_description:
-          id: field_group_description
-          table: group__field_group_description
-          field: field_group_description
-          relationship: gid
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: group_description
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         id:
           id: id
           table: groups_field_data
@@ -286,71 +222,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        uuid:
-          id: uuid
-          table: groups
-          field: uuid
-          relationship: gid
-          group_type: group
-          admin_label: ''
-          entity_type: group
-          entity_field: uuid
-          plugin_id: field
-          label: group_uuid
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         id_1:
           id: id_1
           table: group_relationship_field_data
@@ -407,71 +278,6 @@ display:
           settings:
             thousand_separator: ''
             prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        uuid_1:
-          id: uuid_1
-          table: group_relationship
-          field: uuid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: group_content
-          entity_field: uuid
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -739,45 +545,133 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
-      arguments:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: gc__node
+      sorts:
+        changed:
+          id: changed
+          table: group_relationship_field_data
+          field: changed
+          relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
-          default_action: empty
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: fixed
-          default_argument_options:
-            argument: ''
-          summary_options:
-            base_path: ''
-            count: true
-            override: false
-            items_per_page: 25
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          break_phrase: false
-          not: false
-      filters: {  }
+          entity_type: group_content
+          entity_field: changed
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        changed:
+          id: changed
+          table: groups_field_data
+          field: changed
+          relationship: gid
+          group_type: group
+          admin_label: 'group changed'
+          entity_type: group
+          entity_field: changed
+          plugin_id: date
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: changed_op
+            label: 'Changed on'
+            description: ''
+            use_operator: false
+            operator: changed_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: group_changed
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              limited_access: '0'
+              differential_access_open: '0'
+              differential_access_limited: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        changed_1:
+          id: changed_1
+          table: group_relationship_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: group_content
+          entity_field: changed
+          plugin_id: date
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: changed_1_op
+            label: 'Changed on'
+            description: ''
+            use_operator: false
+            operator: changed_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: group_relationship_changed
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              limited_access: '0'
+              differential_access_open: '0'
+              differential_access_limited: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: OR
       style:
         type: default
         options:
@@ -839,14 +733,18 @@ display:
         - url
         - url.query_args
         - user.roles
-      tags:
-        - 'config:field.storage.group.field_group_description'
+      tags: {  }
   rest_export_1:
     id: rest_export_1
     display_title: 'REST export'
     display_plugin: rest_export
     position: 1
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 1000
       style:
         type: serializer
         options:
@@ -888,7 +786,7 @@ display:
               alias: group_relationship_changed_on
               raw_output: true
       display_extenders: {  }
-      path: views/preservation/v2/show_drupal_groups/node/%node
+      path: views/preservation/v2/show_drupal_group/timestamps
       auth:
         - basic_auth
         - jwt_auth
@@ -901,5 +799,4 @@ display:
         - request_format
         - url
         - user.roles
-      tags:
-        - 'config:field.storage.group.field_group_description'
+      tags: {  }
