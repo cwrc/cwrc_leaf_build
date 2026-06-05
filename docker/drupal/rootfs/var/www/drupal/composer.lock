@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e07227dea92ca40d38d56173424c6d6",
+    "content-hash": "194a5bccd0b15bccd8d5f16f581fc331",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -12661,6 +12661,33 @@
             "time": "2023-03-17T14:10:32+00:00"
         },
         {
+            "name": "islandora/views_nested_details",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Islandora-Labs/views_nested_details.git",
+                "reference": "f452c59ec2c1821cece540ce3a9190e0eeef5a47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Islandora-Labs/views_nested_details/zipball/f452c59ec2c1821cece540ce3a9190e0eeef5a47",
+                "reference": "f452c59ec2c1821cece540ce3a9190e0eeef5a47",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "views_nested_details",
+            "homepage": "https://github.com/Islandora-Labs/views_nested_details",
+            "support": {
+                "issues": "https://github.com/Islandora-Labs/views_nested_details/issues",
+                "source": "https://github.com/Islandora-Labs/views_nested_details/tree/1.1.1"
+            },
+            "time": "2025-01-08T18:57:02+00:00"
+        },
+        {
             "name": "j7mbo/twitter-api-php",
             "version": "1.0.6",
             "source": {
@@ -20190,27 +20217,27 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "7.0.5",
+            "version": "7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/better_exposed_filters.git",
-                "reference": "7.0.5"
+                "reference": "7.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.0.5.zip",
-                "reference": "7.0.5",
-                "shasum": "a215444c39a6ae384710a6c707caf593f6dd1e2d"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.1.2.zip",
+                "reference": "7.1.2",
+                "shasum": "44aaa7ba5c95721cbe6ec25bcef0267ec6a9ad15"
             },
             "require": {
-                "drupal/core": "^10 || ^11",
-                "drupal/nouislider_js": "^15.8"
+                "drupal/core": "^10.3 || ^11",
+                "drupal/nouislider_js": "^15.8.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.5",
-                    "datestamp": "1738353781",
+                    "version": "7.1.2",
+                    "datestamp": "1779237916",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

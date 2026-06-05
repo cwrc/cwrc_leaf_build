@@ -253,6 +253,7 @@
     "drupal/weight": "^3.4",
     "drush/drush": "^12",
     "islandora-rdm/islandora_fits": "dev-8.x-1.x",
+    "islandora/views_nested_details": "^1.1",
     "j7mbo/twitter-api-php": "^1.0",
     "library/pdf.js": "2.4.456",
     "mjordan/islandora_bagger_integration": "dev-jefferya/v0.0.4",
@@ -446,9 +447,6 @@
       },
       "drupal/profile": {
         "Make Profiles Translatable": "https://www.drupal.org/files/issues/2021-02-10/2899744-40.patch"
-      },
-      "drupal/better_exposed_filters": {
-        "Enable changing sort_bef_combine parameter key": "https://www.drupal.org/files/issues/2023-05-12/enable_changing_sort_combine_key-3359254-6.patch"
       },
       "drupal/token": {
         "token insert textarea focus - layout builder block": "patches/layout-builder-specific-token-apply-fix.patch"
