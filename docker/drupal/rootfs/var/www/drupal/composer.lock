@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "194a5bccd0b15bccd8d5f16f581fc331",
+    "content-hash": "33ffffb5b703320d8654ccb3b0241594",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -4383,17 +4383,17 @@
         },
         {
             "name": "drupal/entity",
-            "version": "1.6.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity.git",
-                "reference": "8.x-1.6"
+                "reference": "8.x-1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "dfb214fd45bd6ad79604d23a39a96b3d4c38f8e1"
+                "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "61349682d0db8dead9d6b571ac6b4aeae08abb0f"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -4401,8 +4401,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1740006812",
+                    "version": "8.x-1.8",
+                    "datestamp": "1787767893",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4433,6 +4433,10 @@
                 {
                     "name": "fago",
                     "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "klausi",
+                    "homepage": "https://www.drupal.org/user/262198"
                 },
                 {
                     "name": "mglaman",
@@ -9071,35 +9075,38 @@
         },
         {
             "name": "drupal/quicktabs",
-            "version": "3.0.0-alpha7",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/quicktabs.git",
-                "reference": "8.x-3.0-alpha7"
+                "reference": "4.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/quicktabs-8.x-3.0-alpha7.zip",
-                "reference": "8.x-3.0-alpha7",
-                "shasum": "96eb2614a791f924c5aea5922e5d46091d151752"
+                "url": "https://ftp.drupal.org/files/projects/quicktabs-4.3.1.zip",
+                "reference": "4.3.1",
+                "shasum": "7dbd3e86404d490232704e36623e2725f0369057"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
-                "drupal/jquery_ui_accordion": "^2.0",
-                "drupal/jquery_ui_tabs": "^2.0"
+                "drupal/core": "^10.3 || ^11 || ^12",
+                "drupal/jquery_ui_accordion": "^2.1",
+                "drupal/jquery_ui_tabs": "^2.1"
             },
             "require-dev": {
+                "drupal/coder": "^8.3.16",
+                "drupal/core-dev": "^10.3 || ^11 || ^12",
                 "drupal/jquery_ui_accordion": "*",
-                "drupal/jquery_ui_tabs": "*"
+                "drupal/jquery_ui_tabs": "*",
+                "drush/drush": "^12.5 || ^13.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-alpha7",
-                    "datestamp": "1679423302",
+                    "version": "4.3.1",
+                    "datestamp": "1786557385",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -27225,7 +27232,6 @@
         "drupal/mimemail": 15,
         "drupal/page_manager": 5,
         "drupal/profile_switcher": 15,
-        "drupal/quicktabs": 15,
         "drupal/rest_oai_pmh": 10,
         "drupal/term_merge": 10,
         "drupal/token_custom": 10,

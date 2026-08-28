@@ -217,7 +217,7 @@
     "drupal/profile": "^1.10",
     "drupal/profile_switcher": "^1.0@alpha",
     "drupal/quickedit": "^1.0",
-    "drupal/quicktabs": "^3.0@alpha",
+    "drupal/quicktabs": "^4.3",
     "drupal/recaptcha": "^3.0",
     "drupal/redirect": "^1.6",
     "drupal/require_revision_log_message": "^2.0",
