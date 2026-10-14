@@ -435,10 +435,6 @@
         "TypeError: array_keys(): Argument #1 ($array) must be of type array, null given in array_keys()": "https://www.drupal.org/files/issues/2024-02-20/third_party_settings_3343165.patch",
         "array_merge error": "patches/block_class_array_merge_issue.patch"
       },
-      "drupal/page_manager": {
-        "Some mandatory parameters are missing ('machine_name', 'step')": "https://www.drupal.org/files/issues/2024-04-12/3438993-5.patch",
-        "menu_item_support": "https://www.drupal.org/files/issues/2023-02-02/page_manager-2620036-27.patch"
-      },
       "drupal/filefield_paths": {
         "return value fix": "patches/getFromSupportedWidget.patch"
       },
