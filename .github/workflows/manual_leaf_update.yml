@@ -6,6 +6,9 @@ on:
 jobs:
   auto-update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      workflows: write
 
     services:
       docker:
