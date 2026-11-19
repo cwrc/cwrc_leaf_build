@@ -169,6 +169,7 @@
     "drupal/dblog_filter": "^4.1",
     "drupal/ds": "^3.13",
     "drupal/entity_browser": "^2.6",
+    "drupal/entity_embed": "^1.7",
     "drupal/environment_indicator": "^4.0",
     "drupal/facets": "^2.0",
     "drupal/facets_custom_label": "^2.0@RC",
@@ -339,7 +340,10 @@
         "[web-root]/sites/default/default.settings.php": {
           "append": "assets/default.settings.php"
         },
-        "[web-root]/robots.txt": "assets/robots.txt"
+        "[web-root]/robots.txt": "assets/robots.txt",
+        "[web-root]/.htaccess": {
+          "append": "assets/htaccess-additions.txt"
+        }
       }
     },
     "installer-paths": {
@@ -472,5 +476,13 @@
         "      composer remove drupal/core-project-message"
       ]
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "rm -f web/core/install.php"
+    ],
+    "post-update-cmd": [
+      "rm -f web/core/install.php"
+    ]
   }
 }
